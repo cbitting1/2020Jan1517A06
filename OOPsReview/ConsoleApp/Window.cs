@@ -91,7 +91,7 @@ namespace ConsoleApp
                 //the m indicates the value is a decimal
                 if (value <= 0.0m)
                 {
-                    throw new Exception("Height can not be 0 or less than 0.")
+                    throw new Exception("Height can not be 0 or less than 0.");
                 }
                 else
                 {
@@ -108,6 +108,49 @@ namespace ConsoleApp
         //Numerica can be null if declared as nullable
         //IF the numeric has additional criteria (e.g has to be greater than zero) THEN you can code the property as a Fully Implemented property
         public int? NumberOfPanes { get; set; } //? bedeuted nullable
+
+
+
+        //Constructors
+        //A Constructor are "method" that garuantees the the newly created instance of this class will ALWAYS be created in a known state
+
+        //Constructors are optional
+        //IF a class DOES NOT have a constructor then the system will generate the class instance using the datatype defaults for your private data membersand auto implemented properties
+        //This situation of no constructor(s) uses what is referred to as a "System" constructor.
+
+        //IF you code a constructor, you MUST code any and all constructors needed by your class
+
+        //Constructors can receive a list of parameters
+        //Two common constructors for classes are the Default and Greedy
+
+        //Default Constructor
+        //This version of the constructor takes NO parameters
+       // This version of the constructor usually similates the SYstem constructor
+       // You CAN if you wish assign values to your class data members/properties that are NOT the system default for that datatype
+       //NO RETURN DATATYPE!!!!
+       //This "method" is called on your behalf when an instance of the class is requested by the outside user
+       //You CAN NOT call this "method" directly
+       public Window() //Use the name of the class
+        {
+            //default constructor
+            //Optionally specify your own default values
+            NumberOfPanes = 1;
+            _Height = 36.0m; //inches
+            //Height = 36.0m; We can use either one (this or the one above) it doesn't matter //preferred method of touching any data in the c
+        }
+
+
+        //Greedy Constructor
+        //takes in a value for each data member/property in the class
+        //each data member/property is assigned the incoming parameter value
+
+        public Window(decimal width, decimal height, int? numberofpanes, string manufacturer)
+        {
+            Width = width;
+            Height = height;
+            Manufacturer = manufacturer;
+            NumberOfPanes = (int)numberofpanes;
+        }
 
 
     }
