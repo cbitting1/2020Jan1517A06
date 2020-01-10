@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace ConsoleApp
 {
     //a class represents the defined characteristics of an item
-    // an item can be a physical thing (cell phone), conept (student), 
+    // an item can be a physical thing (cell phone), concept (student), 
         // collection of data
     // Visual Studio creates your class without a specific access type
     // the default type for a class is private
     // code outside of a private class cannot use the contents of the private class
-    // FOr the class to be used by an outside user it must be public
+    // For the class to be used by an outside user it must be public
     public class Window
     {
         //the class can have data that is open to the user by defining it as a public datatype variablename
