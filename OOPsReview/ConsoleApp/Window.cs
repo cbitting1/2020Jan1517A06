@@ -16,7 +16,7 @@ namespace ConsoleApp
     public class Window
     {
         //the class can have data that is open to the user by defining it as a public datatype variablename
-        //the class can have data that is restrict from the user by defining it as a private datatype variablename
+        //the class can have data that is restricted from the user by defining it as a private datatype variablename
         //the class can create a Property that can be used to interface between the user and the private data 
         //the Property will have public access
 
