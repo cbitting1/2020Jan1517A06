@@ -125,7 +125,6 @@ namespace ConsoleApp
         public int? NumberOfPanes { get; set; } //? bedeuted nullable
 
 
-
         //Constructors
         //A Constructor are "method" that garuantees the the newly created instance of this class will ALWAYS be created in a known state
 
