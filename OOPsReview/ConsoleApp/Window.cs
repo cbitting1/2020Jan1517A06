@@ -65,7 +65,7 @@ namespace ConsoleApp
                 }
 
                 //alternate code
-                _Manufacturer = string.IsNullOrEmpty(value) ? null : value;
+                //_Manufacturer = string.IsNullOrEmpty(value) ? null : value; andere variante des if statementes
             }
 
         }
@@ -79,8 +79,25 @@ namespace ConsoleApp
         //access to the stored data (getting or setting) CAN ONLY be done via the property
         public decimal Width { get; set; }
 
+
+        //one can still code an auto implementet property as a fully implemented property
+        //private decimal _Width;
+        //public decimal Width
+        //{
+        //get
+        //{
+        //  return _Width;
+        //}
+        //  set
+        //{
+        //     _Width = value;
+        //  }
+        //}
+
+
+
         //lets fully implement Height with a criteria of being > 0
-        public decimal lHeight
+        public decimal Height
         {
             get
             {
@@ -95,12 +112,10 @@ namespace ConsoleApp
                 }
                 else
                 {
-
+                    _Height = value;
                 }
             }
         }
-
-        public decimal Height { get; set; }
 
         //WHY do we NOT need to fully implement a nullable numeric?
         //Numerics have a default of zero.
@@ -135,7 +150,7 @@ namespace ConsoleApp
             //default constructor
             //Optionally specify your own default values
             NumberOfPanes = 1;
-            _Height = 36.0m; //inches
+            _Height = -36.0m; //inches
             //Height = 36.0m; We can use either one (this or the one above) it doesn't matter //preferred method of touching any data in the c
         }
 
