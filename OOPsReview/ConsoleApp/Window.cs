@@ -24,6 +24,7 @@ namespace ConsoleApp
         private string _Manufacturer;
         private decimal _Height;
         //Properties 
+        //Optional
         //Properties can be implemented in two ways
             //a) Fully Implemented property
                 //used because there is additional code/logic used in processing the data
@@ -149,8 +150,7 @@ namespace ConsoleApp
             //default constructor
             //Optionally specify your own default values
             NumberOfPanes = 1;
-            _Height = -36.0m; //inches
-            //Height = 36.0m; We can use either one (this or the one above) it doesn't matter //preferred method of touching any data in the c
+            Height = 0.9m; //preferred method of touching any data in the class
         }
 
 
@@ -164,6 +164,27 @@ namespace ConsoleApp
             Height = height;
             Manufacturer = manufacturer;
             NumberOfPanes = (int)numberofpanes;
+        }
+
+
+
+
+
+
+        //Behaviours (method)
+        //Optional
+
+        //Area of a Window
+        public decimal WindowArea()
+        {
+            return Width * Height;
+        }
+
+
+        // Perimeter of a Window
+        public decimal WindowPerimeter()
+        {
+            return 2 * (Width + Height);
         }
 
 

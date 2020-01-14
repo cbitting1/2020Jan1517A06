@@ -119,6 +119,18 @@ namespace ConsoleApp
         }
 
 
+        //Door Area
+        public decimal DoorArea()
+        {
+            return Width * Height;
+        }
+
+
+        // Perimeter of a Window
+        public decimal DoorPerimeter()
+        {
+            return 2 * (Width + Height);
+        }
 
 
     }
