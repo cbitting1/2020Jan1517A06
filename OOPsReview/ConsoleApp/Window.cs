@@ -52,8 +52,8 @@ namespace ConsoleApp
             {
                 //the set takes incoming data and places that data into the private data member
 
-                //internal to the property, incoming data willnbe placed in a common variable called value
-                //a property is associated with a signle data member.
+                //internal to the property, incoming data will be placed in a common variable called value
+                //a property is associated with a single data member.
                 //a property has no parameter list
                 if (string.IsNullOrEmpty(value))
                 {
@@ -120,7 +120,7 @@ namespace ConsoleApp
         //WHY do we NOT need to fully implement a nullable numeric?
         //Numerics have a default of zero.
         //Numerics can only store a numeric (unless nullable)
-        //Numerica can be null if declared as nullable
+        //Numerics can be null if declared as nullable
         //IF the numeric has additional criteria (e.g has to be greater than zero) THEN you can code the property as a Fully Implemented property
         public int? NumberOfPanes { get; set; } //? bedeuted nullable
 
