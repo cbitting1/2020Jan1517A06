@@ -73,6 +73,138 @@ namespace ConsoleApp
             //Greedy Door
             Console.WriteLine($"Default Window Area {theDoorG.DoorArea()};" +
               $"Default Window Perimeter {theDoorG.DoorPerimeter()}");
+
+
+
+
+            
+            UsingClasses();
+        }
+
+        static void UsingClasses()
+        {
+            //declare the needed Lists<T> for estimating paint job
+            List<Wall> walls = new List<Wall>(); //List is an object
+            List<Door> doors = new List<Door>();
+            List<Window> windows = new List<Window>();
+            Room room = new Room();
+
+
+            //loop of prompt/input/validate for walls
+            Wall wall = new Wall();
+
+            //prompt, read, validate
+            wall.Width = 6.6m;
+            wall.Height = 3.1m;
+            walls.Add(wall);  //adding a wall to the wall list
+            wall = new Wall();
+
+
+
+            wall.Width = 6.6m;
+            wall.Height = 3.1m;
+            walls.Add(wall);  //adding a wall to the wall list
+            wall = new Wall();
+
+
+
+            wall.Width = 5.6m;
+            wall.Height = 3.1m;
+            walls.Add(wall);  //adding a wall to the wall list
+            wall = new Wall();
+
+
+            wall.Width = 5.6m;
+            wall.Height = 3.1m;
+            walls.Add(wall);  //adding a wall to the wall list
+
+
+
+
+            // loop of prompt/input/validate for windows
+            Window window = new Window();
+            window.Height = 1.2m;
+            window.Width = 1.5m;
+            window.Manufacturer = "All Weather";
+            window.NumberOfPanes = 3;
+            windows.Add(window);
+
+
+            // loop of prompt/input/validate for doors
+            Door door = new Door();
+            door.Width = .85m;
+            door.Height = 2.0m;
+            door.Material = "Wood";
+            door.RightOrLeft = "R";
+            doors.Add(door);
+
+            //add a second door to the list
+            door = new Door();
+            door.Width = .85m;
+            door.Height = 2.0m;
+            door.Material = "Wood";
+            door.RightOrLeft = "L";
+            doors.Add(door);
+
+            //add third door to the list 
+            door = new Door();
+            door.Width = .85m;
+            door.Height = 2.0m;
+            door.Material = "Wood";
+            door.RightOrLeft = "R";
+            doors.Add(door);
+
+
+            //store all characteristics of Room 
+            room.Name = "Master Bedroom";
+            room.Walls = walls; //walls is a list inside room
+            room.Doors = doors;
+            room.Windows = windows;
+
+
+            //Paint Can coverage: 27.87 square meters
+
+            //How many cans of paint do I need to cover the walls?
+            //Calculate the area of the walls
+            decimal wallarea = 0.0m;
+
+            //foreach Loop when we have a collection and we don't know how many we have in the collection (List)
+            foreach(Wall item in room.Walls) //Item is a placeholder    //can also say wall item in walls (same thing)
+            {
+                wallarea += item.WallArea();
+            }
+
+            //Calculate the area of the doors
+            decimal doorarea = 0.0m;
+
+            for (int i = 0; i < room.Doors.Count; i++)
+            {
+                doorarea += room.Doors[i].DoorArea();
+            }
+
+
+            //Calculate the are of the windows
+            decimal windowarea = 0.0m;
+            foreach (var item in room.Windows) //Item is a placeholder    //can also say wall item in walls (same thing)
+            {
+                windowarea += item.WindowArea();
+            }
+
+
+            //Calculate new area of walls
+            decimal netWallArea = wallarea - (doorarea + windowarea);
+
+
+            //Calculate the number of required paint cans
+            decimal cansOfPaint = netWallArea / 27.87m;
+
+
+            //Output the results
+            Console.WriteLine($"Wall area is: \t{wallarea:0.00}");
+            Console.WriteLine($"Door area is: \t{doorarea:0.00}");
+            Console.WriteLine($"Window area is: \t{windowarea:0.00}");
+            Console.WriteLine($"Net Wall area is: \t{netWallArea:0.00}");
+            Console.WriteLine($"Required number of paint cans is: \t{cansOfPaint:0.00}");
         }
     }
 }
