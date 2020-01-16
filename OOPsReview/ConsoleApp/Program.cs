@@ -21,7 +21,7 @@ namespace ConsoleApp
             Console.WriteLine($"Width {theWindowD.Width}; height {theWindowD.Height}; " + $"Panes {theWindowD.NumberOfPanes}; Manufacturer >{theWindowD.Manufacturer}<");
 
 
-            //To place data within the new instance of teh class (object) use the properties
+            //To place data within the new instance of the class (object) use the properties
             //To reference a property within an instance use the dot operator
             theWindowD.Manufacturer = "All Weather";
             theWindowD.Width = .9m;
@@ -48,7 +48,7 @@ namespace ConsoleApp
             Console.WriteLine($"Width {theDoorG.Width}; height {theDoorG.Height}; " + $"Direction {theDoorG.RightOrLeft}; Material >{theDoorG.Material}<");
 
 
-            //Falscher Buchstabe bei LeftOrRight
+            //Falscher Buchstabe bei LeftOrRight bekommt man die error message die wir created haben
                 //theDoorG.RightOrLeft = "M";
                 //Console.WriteLine($"Width {theDoorG.Width}; height {theDoorG.Height}; " + $"Direction {theDoorG.RightOrLeft}; Material >{theDoorG.Material}<");
 

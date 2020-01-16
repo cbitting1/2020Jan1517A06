@@ -9,12 +9,13 @@ namespace ConsoleApp
     public class Door
     {
         //fields Height, Width, Material (nullable), RightOrLeft
+        //Private Data Members (auch Attributes genannt) sind die variables die nur in dieser class auftauchen und die jede method 
+            //der class accessen kann
 
         private string _Material;
         private decimal _Height;
         private string _RightOrLeft;
         private decimal _Width;
-
 
         public string Material
         {
@@ -98,7 +99,7 @@ namespace ConsoleApp
         }
 
 
-
+        //Default Constructor
         public Door()
         {
             //instead of using the system datatype defaults, we have supplied our own defualts
@@ -109,7 +110,7 @@ namespace ConsoleApp
         }
 
 
-
+        //Greedy Constructor
         public Door(decimal width, decimal height, string rightorleft, string material)
         {
             Width = width;
@@ -119,7 +120,7 @@ namespace ConsoleApp
         }
 
 
-        //Door Area
+        //Door Area   = eine function die in der class definiert ist = "method". Sonst heisst das "Function"
         public decimal DoorArea()
         {
             return Width * Height;
@@ -127,9 +128,10 @@ namespace ConsoleApp
 
 
         // Perimeter of a Window
-        public decimal DoorPerimeter()
-        {
+        public decimal DoorPerimeter() //wenn das private anstatt public waer dann kann nur die class selber die method rufen
+        {                               // Perimeter = Umfang
             return 2 * (Width + Height);
+         //   return DoorArea() * 200; das Program ruft die DoorArea() method und rechnet dann Width * Height und rechnet das dann mal 200
         }
 
 
