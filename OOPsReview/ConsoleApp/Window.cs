@@ -166,7 +166,10 @@ namespace ConsoleApp
             NumberOfPanes = (int)numberofpanes;
         }
 
-
+        public void PrintThis(string sadf)
+        {
+            Console.WriteLine(sadf);
+        }
 
 
 

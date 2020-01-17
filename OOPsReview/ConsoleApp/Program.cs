@@ -17,7 +17,7 @@ namespace ConsoleApp
 
             //Using the Default Constructor
             Window theWindowD = new Window();
-
+            theWindowD.PrintThis("hello");
             Console.WriteLine($"Width {theWindowD.Width}; height {theWindowD.Height}; " + $"Panes {theWindowD.NumberOfPanes}; Manufacturer >{theWindowD.Manufacturer}<");
 
 
@@ -85,19 +85,26 @@ namespace ConsoleApp
         {
             //declare the needed Lists<T> for estimating paint job
             List<Wall> walls = new List<Wall>(); //List is an object
+                                                //Wall is the name of the Class
+                                                //walls is the name of the list
+                                                //new List<Wall>() --> we take the things that were declared from 
             List<Door> doors = new List<Door>();
             List<Window> windows = new List<Window>();
-            Room room = new Room();
+            Room room = new Room(); //clearing out the previous entry to make "new room" for another entry; otherwise it will always
+                                                                        //keep entering the same numbers into the list
 
 
             //loop of prompt/input/validate for walls
-            Wall wall = new Wall();
-
+            Wall wall = new Wall(); //declaring "wall" as a local variable
             //prompt, read, validate
             wall.Width = 6.6m;
             wall.Height = 3.1m;
-            walls.Add(wall);  //adding a wall to the wall list
-            wall = new Wall();
+            walls.Add(wall);   //adding a wall to the wall list
+                               //walls is the name of the list in which we are putting the data that user entered
+                               //Add.(wall) we add it to the walls list the data that is stored in everything that is 
+                                                    //associated with wall. ....
+            wall = new Wall();//clearing out the previous entry to make "new room" for another entry; otherwise it will always
+                                    //keep entering the same numbers into the list
 
 
 
