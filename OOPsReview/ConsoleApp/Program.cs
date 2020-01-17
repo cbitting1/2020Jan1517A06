@@ -84,18 +84,30 @@ namespace ConsoleApp
         static void UsingClasses()
         {
             //declare the needed Lists<T> for estimating paint job
-            List<Wall> walls = new List<Wall>(); //List is an object
-                                                //Wall is the name of the Class
+            List<Wall> walls = new List<Wall>(); //List is an object; hier createn wir eine neue Liste (walls)
+                                                //Wall is the name of the Class; wir wollen Wall instanced darin speichern
                                                 //walls is the name of the list
                                                 //new List<Wall>() --> we take the things that were declared from 
+                                                //List<Wall> ist der datatype von walls (name)
             List<Door> doors = new List<Door>();
             List<Window> windows = new List<Window>();
             Room room = new Room(); //clearing out the previous entry to make "new room" for another entry; otherwise it will always
                                                                         //keep entering the same numbers into the list
+                                    //eine instance von der class (Room)
+                                    //immer wenn man eine neue instance created von einer class, dann ruft (new Room() ) den constructor
+                                    //instance ist ein Object
+                                    //Class ist ein DataType (wie int)
 
 
             //loop of prompt/input/validate for walls
             Wall wall = new Wall(); //declaring "wall" as a local variable
+                        //Wall = datatype (class); wall = name; new Wall() ruft den constructor in der Wall class
+                        //instance von der class ist ein Object (die class selber ist kein object sondern blueprint)
+                                    //wir kriegen erst ein object wenn wir ein instance der class createn
+                                    //hier ist wall ein instance/object
+                                    // new Wall() created eine neue Wall und hat die daten vom default constructor drin
+
+            //Constructor wird nur 1 mal gerufen danach nie wieder!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //prompt, read, validate
             wall.Width = 6.6m;
             wall.Height = 3.1m;
@@ -164,7 +176,8 @@ namespace ConsoleApp
 
             //store all characteristics of Room 
             room.Name = "Master Bedroom";
-            room.Walls = walls; //walls is a list inside room
+            room.Walls = walls; //walls is a list inside this function
+                //die walls liste die wir hier created haben speichern wir in der Walls liste in der instance (class) Room
             room.Doors = doors;
             room.Windows = windows;
 
@@ -176,9 +189,15 @@ namespace ConsoleApp
             decimal wallarea = 0.0m;
 
             //foreach Loop when we have a collection and we don't know how many we have in the collection (List)
-            foreach(Wall item in room.Walls) //Item is a placeholder    //can also say wall item in walls (same thing)
-            {
+            foreach(Wall item in room.Walls) //Item is a placeholder (name); Wall is der datatype  //can also say wall item in walls (same thing)
+            { //Wall ist der datatype; item der name den wir uns aussuchen ...kann auch x sein; room ist instance; Walls ist die Liste
+                                        //room.Walls = die Liste mit den Wall instances die fuer diesen instance von room gespeichert sind
+                                        // room.Walls ist zu finden in der Room Class
+                                        //in Walls ist immer nur eine Wall drin gespeichert at a time (solange bis keine wall mehr da ist)
                 wallarea += item.WallArea();
+                //WallArea() accessed die WallArea() Method in der Wall class; item hat die komplette Wall instance drin von der entsprechenden Wall)
+                //Item geht die walls liste durch und packt immer die komplette wall in sich rein
+                //item geht solange durch den loop bis keine wall mehr vorhanden ist in der liste
             }
 
             //Calculate the area of the doors
