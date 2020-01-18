@@ -17,7 +17,7 @@
     var theButton = Request.Form["PressMe"];
     if (theButton.Equals("left"))
     {
-        //in the true path of the IsPost test your page is returning from the browserwith any data that you have entered into your form controls
+        //in the true path of the IsPost test your page is returning from the browser with any data that you have entered into your form controls
         <p>
             This is the nth time the page has appeared. You entered the string
             &gt; @inputData &lt;
@@ -26,7 +26,10 @@
     else
     {
         var account = Request.Form["rightSide"];
-       
+        <p>
+            This is the nth time the page has appeared. You entered the string
+            &gt; @account  &lt;
+        </p>     
     }
 }
 else
@@ -45,8 +48,8 @@ else
                 &nbsp;&nbsp;
                 <input type="text" id="javascriptname" name="codingname" />
                 &nbsp;&nbsp;
-                @* a button using the input tag *@
-                @*<input type="submit" id="PressMe" name="PressMe" value="DisplayText" />*@
+                 @*a button using the input tag 
+                    <input type="submit" id="PressMe" name="PressMe" value="DisplayText" />*@
 
                 @* a button using the button tag *@
                 <button type="submit" id="PressMe" name="PressMe" value="left">Press Me</button>
