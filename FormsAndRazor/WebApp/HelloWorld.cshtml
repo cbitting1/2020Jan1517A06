@@ -6,7 +6,7 @@
     //Data is within the Request structure
     //Data enters your code as a string
     //This is C# coding so all C# rules apply
-    string inputData = Request.Form["codingname"];
+    string inputData = Request.Form["codingname"]; //this is getting the data what was entered in the first label/input tag
 }
 
 <h1>Hello World</h1>
@@ -14,13 +14,14 @@
 @if (IsPost)
 {
     //for logical processing which probably depends on the button you press it is BEST to determine which button was pressed THEN do your remaining logic
-    var theButton = Request.Form["PressMe"];
+    var theButton = Request.Form["PressMe"]; //checks if the value of which button was pressed. IF button with value "left" was pressed it goes to 
+                                                //the first <p>...</p>; IF value "right" was pressed it goes to the else <p>...</p>
     if (theButton.Equals("left"))
     {
         //in the true path of the IsPost test your page is returning from the browser with any data that you have entered into your form controls
         <p>
             This is the nth time the page has appeared. You entered the string
-            &gt; @inputData &lt;
+            &gt; @inputData &lt; @*@inputData is going to get the data from the first input field that we declared*@ 
         </p>
     }
     else
@@ -28,14 +29,15 @@
         var account = Request.Form["rightSide"];
         <p>
             This is the nth time the page has appeared. You entered the string
-            &gt; @account  &lt;
+            &gt; @account  &lt; @*@account  gets the value of the second input field that we have declared*@
         </p>     
     }
 }
 else
 {
     //in the false path of the IsPost test your page has not yet been sent to the browser
-    //this is an exellent place to do page initialization work
+    //this is an exellent place to do page initialization work (do you wanna have something special done on my website for the first time out)
+                    //if so we can do it here
     <p>This is the first time the page appears.</p>
 }
 
