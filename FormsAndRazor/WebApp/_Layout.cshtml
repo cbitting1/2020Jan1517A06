@@ -7,7 +7,7 @@
     <script src="~/Scripts/bootstrap.js"></script>
 
     @* add any of your own customized stylesheets *@
-    <link href="~/Content/myCustomStyles.css" rel="stylesheet" />
+         @*<link href="~/Content/myCustomStyles.css" rel="stylesheet" />*@
 
     @* if you use this section on your content page, you are specifting specific css styling for that particular page. *@
     @RenderSection("head", required: false)
@@ -21,6 +21,7 @@
         RenderSection is required (default) on each content page unless the required parameter has been set to false.*@
 
         <div class="jumbotron">
+            @RenderPage("~/_Menu.cshtml")
             @RenderSection("banner")
         </div>
         @* RenderBody is the main default area where your context page will be displayed. The RenderBody reference is physically removed and your context inserted. *@
