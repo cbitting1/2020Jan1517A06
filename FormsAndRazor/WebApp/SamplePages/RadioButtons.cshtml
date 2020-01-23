@@ -1,7 +1,9 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
     Page.Title = "RadioButtons";
-
+    
+    //we can also put the "var language = Request.Form["LanguageGroup];" in here
+            //as well as the "var script..."
 }
 
 @section banner{
@@ -15,7 +17,7 @@
     var script = Request.Form["ScriptGroup"];
     if (language.IsEmpty() || script.IsEmpty())
     {
-        <p><span style="color:firebrick">Make a selection from both programs and coding.</span></p>
+        <p><span style="color:firebrick">Make a selection from both, programs and coding.</span></p>
     }
     else
     {

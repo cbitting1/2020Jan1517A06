@@ -3,14 +3,18 @@
         <strong>Razor CPSC 1517</strong>
     </a>
 
-    <button class="navbar-toggler" type="button"data-toggle="collapse" data-target="#navbarMenuName" aria-controls="navbarMenuName" aria-expanded="false" aria-label="Toggle Navigation">
+    @* placeholder for (toggle bar icon) *@
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuName" aria-controls="navbarMenuName" aria-expanded="false" aria-label="Toggle Navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+
+    @* Placehlder for our actual menu *@
     <div class="collapse navbar-collapse" id="navbarMenuName">
         <ul class="navbar-nav">
+            @* <li> represents each item we want a button for *@
             <li class="nav-item">
-                <a class="nav-link" href="~/Default.cshtml" style="color:black">Home</a>
+                <a class="nav-link" href="~/Default.cshtml" style="color:black">Home (Default Page)</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="~/HelloWorld.cshtml" style="color:black">Hello World</a>
