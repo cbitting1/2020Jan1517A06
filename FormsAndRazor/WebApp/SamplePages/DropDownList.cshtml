@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "DropDownList (Select)";
+
+    var choice = Request.Form["CodingSamples"];
+}
+
+
+@section banner{
+    <h1>Using Select Control for a DropDownList</h1>
+}
+
+
+@if(IsPost)
+{
+    switch(choice.ToUpper())
+    {
+        case "TEXTBOXES":
+            {
+                //To go to another page without using an anchor tag use Response.Redirect("xxx.cshtml")
+                Response.Redirect("~/HelloWorld.cshtml");
+                break;
+            }
+             case "RADIOBUTTONS":
+            {
+                //To go to another page without using an anchor tag use Response.Redirect("xxx.cshtml")
+                Response.Redirect("RadioButtons.cshtml");
+                break;
+            }
+             case "CHECKBOXES":
+            {
+                //To go to another page without using an anchor tag use Response.Redirect("xxx.cshtml")
+                Response.Redirect("CheckBoxes.cshtml");
+                break;
+            }
+        default:
+            {
+                <p><span style="color:firebrick">Make a select from the list of choices</span></p>
+                break;
+            }
+    }
+}
+else
+{
+    //By default the select control positions itself on the first selection
+}
+
+
+
+<form id="theForm" method="post">
+    <div class="offset-1">
+        <label for="CodingSamples">Select the sample to view</label><br />
+        <select id="CodingSamples" name="CodingSamples">
+            @* A single select is created using the option tag
+            The tag has a parameter called value
+            The displayed text is coded between the opening and the closing tag*@
+            <option value="">Select...</option>
+            <option value="TextBoxes">TextBoxes</option>
+            <option value="RadioButtons">RadioButtons</option>
+            <option value="CheckBoxes">CheckBoxes</option>
+        </select><br /><br />
+        <button type="submit" name="theButton" id="theButton" value="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+
+</form>
