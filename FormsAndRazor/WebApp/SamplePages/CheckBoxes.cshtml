@@ -42,12 +42,12 @@ else
 <form id="theForm" method="post">
     <div class="offset-1">
         <label for="CheckBoxGroup">Select your favourite gaming platform(s):</label><br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PS4" @(Array.IndexOf(choices.Split(','),"PS4") >= 0 ? "checked" : "") />PS4<br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PC"  @(Array.IndexOf(choices.Split(','),"PC") >= 0 ? "checked" : "") />Computer<br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="XBox One"   @(Array.IndexOf(choices.Split(','),"XBox One") >= 0 ? "checked" : "") />XBox One<br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Nintendo Switch"   @(Array.IndexOf(choices.Split(','),"Nintendo Switch") >= 0 ? "checked" : "") />Nintendo Switch<br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Phone"   @(Array.IndexOf(choices.Split(','),"Phone") >= 0 ? "checked" : "") />Cell Phone<br />
-        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Wii"   @(Array.IndexOf(choices.Split(','),"Wii") >= 0 ? "checked" : "") />Wii<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PS4" @(Array.IndexOf(choices.Split(','), "PS4") >= 0 ? "checked" : "") />PS4<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PC" @(Array.IndexOf(choices.Split(','), "PC") >= 0 ? "checked" : "") />Computer<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="XBox One" @(Array.IndexOf(choices.Split(','), "XBox One") >= 0 ? "checked" : "") />XBox One<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Nintendo Switch" @(Array.IndexOf(choices.Split(','), "Nintendo Switch") >= 0 ? "checked" : "") />Nintendo Switch<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Phone" @(Array.IndexOf(choices.Split(','), "Phone") >= 0 ? "checked" : "") />Cell Phone<br />
+        <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Wii" @(Array.IndexOf(choices.Split(','), "Wii") >= 0 ? "checked" : "") />Wii<br />
 
         <button type="submit" name="theButton" id="theButton" value="submit" class="btn btn-primary">Submit</button>
     </div>
