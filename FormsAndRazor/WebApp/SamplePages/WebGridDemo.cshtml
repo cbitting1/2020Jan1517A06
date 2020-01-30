@@ -14,7 +14,7 @@
 
 
     var db = Database.Open("NWDB");
-    var querycommand = @"SELECT ProuctID, ProductName, UnitPrice, QuantityPerUnit, Discontinued 
+    var querycommand = @"SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, Discontinued 
                          FROM Products
                          WHERE CategoryID = @0";
 
