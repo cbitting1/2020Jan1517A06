@@ -9,7 +9,7 @@
     if(string.IsNullOrEmpty(regionidarg))
     {
         //the first time the page comes up my query argument will be null: it needs a value so the database query will NOT abort
-        regionidarg = "0";
+        regionidarg = "0"; //default would be 0 if user did not enter anything but just pressed the submit button
     }
 
 
@@ -60,7 +60,7 @@
         else
         {
             <p>Found</p>
-            //There are 2 ways to retreive a value fomr a queried record
+            //There are 2 ways to retreive a value from a queried record
             //  a) Access using an index
             regionid = results[0].ToString();
             //  b) Access using the column title string
