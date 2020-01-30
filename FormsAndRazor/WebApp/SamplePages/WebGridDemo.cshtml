@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "WebGrid Demo";
+
+    //To receive incoming data passed as a parameter on the URL address you will use Request.QueryString["xxxx"] where xxxx is the parameter label
+    //Just like a control; if the parameter label does NOT exist, QueryString will return a null
+    var incomingParameter = Request.QueryString["cid"];
+
+    //Test: did a parameter actually exist
+    if(string.IsNullOrEmpty(incomingParameter))
+    {
+        Response.Redirect("MultiRecordQuery.cshtml");
+    }
+
+
+    var db = Database.Open("NWDB");
+    var querycommand = @"SELECT ProuctID, ProductName, UnitPrice, QuantityPerUnit, Discontinued 
+                         FROM Products
+                         WHERE CategoryID = @0";
+
+    var results = db.Query(querycommand, incomingParameter);
+
+    //Create an instance of the WebGrid
+    //Notice the collection (results) is passed at the time of instantiation
+    var gridinstance = new WebGrid(results);
+
+}
+
+
+@section banner{
+    <h1>Display a Collection of Records using Web Grid</h1>
+}
+
+
+<div class="row">
+    <div class="offset-1">
+        <span style="font-size:x-large"><strong>Products for Category @incomingParameter</strong></span>
+        @* Use WebGrid *@
+        @gridinstance.GetHtml();
+    </div>
+</div>
