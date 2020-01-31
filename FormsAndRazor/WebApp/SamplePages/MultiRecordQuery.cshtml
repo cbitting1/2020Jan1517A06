@@ -70,19 +70,19 @@
                 <option value="0">select ...</option>
 
                 @* Loop through the collection of records in ddlResults
-                   Create a line the ddl for each item in the collection 
-                   referencing an item column of the collection is done
-                   using either the index or propertyname technique
-                   Here the property name is the sql column title string*@
+        Create a line the ddl for each item in the collection
+        referencing an item column of the collection is done
+        using either the index or propertyname technique
+        Here the property name is the sql column title string*@
                 @foreach (var item in ddlResults)
                 {
                     if (item.CategoryID.ToString() == categorylist)
                     {
-                        <option value="@item.CategoryID" selected>@item[1]</option> //or we could go @item.CategoryName in between the two <option> tags
+                            <option value="@item.CategoryID" selected>@item[1]</option> //or we could go @item.CategoryName in between the two <option> tags
                     }
                     else
                     {
-                        <option value="@item.CategoryID">@item[1]</option> //or we could go @item.CategoryName in between the two <option> tags
+                            <option value="@item.CategoryID">@item[1]</option> //or we could go @item.CategoryName in between the two <option> tags
                     }
                 }
             </select>&nbsp;&nbsp;
@@ -93,3 +93,4 @@
         </div>
     </div>
 </form>
+
