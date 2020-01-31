@@ -57,7 +57,7 @@
             //To pass parameters to the page you will add the data AFTER the page reference
             //Syntax Response.Redirect("xxxxxxpage.cshtml?label=value[&label=value....]")
             //This uses the Get method of handling data WHICH MEANS visible and plain text
-            Response.Redirect("WebGridDemo.cshtml?cid=" + categorylist);
+            Response.Redirect("WebGridDemo.cshtml?cid=" + categorylist); //cid is what gives the data to the next page
         }
     }
 }
@@ -70,10 +70,10 @@
                 <option value="0">select ...</option>
 
                 @* Loop through the collection of records in ddlResults
-        Create a line the ddl for each item in the collection
-        referencing an item column of the collection is done
-        using either the index or propertyname technique
-        Here the property name is the sql column title string*@
+                    Create a line the ddl for each item in the collection
+                    referencing an item column of the collection is done
+                    using either the index or propertyname technique
+                    Here the property name is the sql column title string*@
                 @foreach (var item in ddlResults)
                 {
                     if (item.CategoryID.ToString() == categorylist)
@@ -86,10 +86,7 @@
                     }
                 }
             </select>&nbsp;&nbsp;
-            <button type="submit" name="theButton" id="theButton" value="submit"
-                    class="btn btn-primary">
-                Search
-            </button>
+            <button type="submit" name="theButton" id="theButton" value="submit" class="btn btn-primary"> Search</button>
         </div>
     </div>
 </form>
