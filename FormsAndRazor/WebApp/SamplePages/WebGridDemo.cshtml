@@ -25,9 +25,7 @@
     var results = db.Query(querycommand, incomingParameter);
 
 
-
-    //!!!!!!!!!!31.Jan!!!
-    //the query will be returning a single value, not a collection of rows
+    //The query will be returning a single value, not a collection of rows
     //Use .QueryValue() to execute the sql command
     //Testing of results would use xxxx == null
     var getnameCommand = @"SELECT CategoryName
@@ -40,7 +38,7 @@
 
     //Create an instance of the WebGrid
     //Notice the collection (results) is passed at the time of instantiation
-    // 31. Jan. To set you page size, you need to do this on the new command, NOT within the GetHtml()
+    //To set you page size, you need to do this on the new command, NOT within the GetHtml()
     var gridinstance = new WebGrid(results, rowsPerPage:3);
 }
 
@@ -59,7 +57,7 @@
         NOTE: You DO NOT need to use all columns from your query. If you wish to omit a column, simply, DO NOT add the xxxx.Column() to your list of display columns
         Formatting for a datetime attribute format: (item) => item.somedatefield.ToString("MMM dd, yyyy")*@
         @gridinstance.GetHtml(
-             tableStyle: "table table-striped table-bordered table-hover", 
+             tableStyle: "table table-striped table-bordered table-hover",
              mode: WebGridPagerModes.All,
              firstText: "Start",
              lastText: "End",
