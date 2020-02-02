@@ -13,12 +13,15 @@
     }
 
 
-
+    //Connect to Database
     var db = Database.Open("NWDB");
+
+    //Select Statement saved in var querycommand
     var querycommand = @"SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, Discontinued 
                          FROM Products
                          WHERE CategoryID = @0";
 
+    //Execution of Select Statement (querycommand)
     var results = db.Query(querycommand, incomingParameter);
 
 
