@@ -2,8 +2,9 @@
     Layout = "~/_Layout.cshtml";
     Page.Title = "CRUD - Insert";
 
-
+    //retreive what button was pressed
     var thebutton = Request.Form["theButton"];
+
     var productname = "";
     var supplierid = "";
     var categoryid = "";
@@ -34,10 +35,11 @@
     }
     else
     {
-        //Process the entered data
+        //Process the entered data//
 
 
         //Retreive the data within the input controls
+            //could also do it on top of page, or just here when user pressed the button
         productname = Request.Form["ProductName"];
         supplierid = Request.Form["SupplierID"];
         categoryid = Request.Form["CategoryID"];
@@ -50,7 +52,7 @@
 
         try
         {
-            //connect to the Database
+            //Connect to the Database
             var db = Database.Open("NWDB");
 
             //Create the SQL Insert command
@@ -60,14 +62,15 @@
 
             //Execute the Insert command
             //To execute the Insert, Update, or Delete command, use .Execute()
-            db.Execute(insertcommand, productname, string.IsNullOrEmpty(supplierid) ? null : supplierid,
-                                                string.IsNullOrEmpty(categoryid) ? null : categoryid,
-                                                string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
-                                                string.IsNullOrEmpty(unitprice) ? null : unitprice,
-                                                string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
-                                                string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
-                                                string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
-                                                0);
+            db.Execute(insertcommand, productname, 
+                                      string.IsNullOrEmpty(supplierid) ? null : supplierid,
+                                      string.IsNullOrEmpty(categoryid) ? null : categoryid,
+                                      string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                                      string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                                      string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
+                                      string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
+                                      string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
+                                      0);
 
 
             //Display a success message
@@ -103,7 +106,7 @@ else
         and centered aligned buttons. The Input controls and their label  text controls are in a 2 column format. The submit buttons are centered on another row. Tool tips are used on the
         web controls as a placeholder prases. Try/Catch will be used to capture processing errors.
         <br /><br />
-        The Products Table will be maintained. It has a primary identity key. Thus, no need for a  field for the Primary Key is required on this form. This form ONLY does insert.
+        The Products Table will be maintained. It has a primary identity key. Thus, no need for a field for the Primary Key is required on this form. This form ONLY does insert.
         However, if you wished to have a field to display the new Primary Key when it is created, you could create a &ltLabel&gt field for the output display of the Primary Key.
         (If this page would do insert and update we would need a primary key)
     </blockquote>
