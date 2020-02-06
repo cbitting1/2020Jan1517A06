@@ -14,86 +14,103 @@
     var unitsonorder = "";
     var reorderlevel = "";
     var discontinued = "";
+
+    //Obtain the record collection (dataset) for the supplierID and the categoryID
+    var db = Database.Open("NWDB");
+
+    var supplierquery = @"SELECT SupplierID, CompanyName
+                         FROM Suppliers
+                         ORDER BY CompanyName";
+
+
+    var categoryquery = @"SELECT CategoryID, CategoryName
+                          FROM Categories
+                          ORDER BY CategoryName";
+
+    //Execution of Select statements
+    var supplierlist = db.Query(supplierquery);
+    var categorylist = db.Query(categoryquery);
 }
 
 
 @if (IsPost)
-{
-    if (thebutton.Equals("clear"))
-    {
-        //Empty the fields of data
-        productname = "";
-        supplierid = "";
-        categoryid = "";
-        quantityperunit = "";
-        unitprice = "";
-        unitsinstock = "";
-        unitsonorder = "";
-        reorderlevel = "";
-        discontinued = "";
-
-    }
-    else
-    {
-        //Process the entered data//
-
-
-        //Retreive the data within the input controls
-            //could also do it on top of page, or just here when user pressed the button
-        productname = Request.Form["ProductName"];
-        supplierid = Request.Form["SupplierID"];
-        categoryid = Request.Form["CategoryID"];
-        quantityperunit = Request.Form["QuantityPerUnit"];
-        unitprice = Request.Form["UnitPrice"];
-        unitsinstock = Request.Form["UnitsOnStock"];
-        unitsonorder = Request.Form["UnitsOnOrder"];
-        reorderlevel = Request.Form["ReorderLevel"];
-        discontinued = Request.Form["Discontinued"];
-
-        try
         {
-            //Connect to the Database
-            var db = Database.Open("NWDB");
+            if (thebutton.Equals("clear"))
+            {
+                //Empty the fields of data
+                productname = "";
+                supplierid = "";
+                categoryid = "";
+                quantityperunit = "";
+                unitprice = "";
+                unitsinstock = "";
+                unitsonorder = "";
+                reorderlevel = "";
+                discontinued = "";
 
-            //Create the SQL Insert command
-            var insertcommand = @"INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+            }
+            else
+            {
+                //Process the entered data//
+
+
+                //Retreive the data within the input controls
+                //could also do it on top of page, or just here when user pressed the button
+                productname = Request.Form["ProductName"];
+                supplierid = Request.Form["SupplierList"]; //input from web controls are strings
+                categoryid = Request.Form["CategoryList"];
+                quantityperunit = Request.Form["QuantityPerUnit"];
+                unitprice = Request.Form["UnitPrice"];
+                unitsinstock = Request.Form["UnitsOnStock"];
+                unitsonorder = Request.Form["UnitsOnOrder"];
+                reorderlevel = Request.Form["ReorderLevel"];
+                discontinued = Request.Form["Discontinued"];
+
+                try
+                {
+                    //Connect to the Database
+                    //var db = Database.Open("NWDB"); Opened on top of page
+
+                    //Create the SQL Insert command
+                    var insertcommand = @"INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
                       VALUES(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
 
 
-            //Execute the Insert command
-            //To execute the Insert, Update, or Delete command, use .Execute()
-            db.Execute(insertcommand, productname, 
-                                      string.IsNullOrEmpty(supplierid) ? null : supplierid,
-                                      string.IsNullOrEmpty(categoryid) ? null : categoryid,
-                                      string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
-                                      string.IsNullOrEmpty(unitprice) ? null : unitprice,
-                                      string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
-                                      string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
-                                      string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
-                                      0);
+                    //Execute the Insert command
+                    //To execute the Insert, Update, or Delete command, use .Execute()
+                    db.Execute(insertcommand, productname,
+                                              supplierid.Equals("0") ? null : supplierid,
+                                              categoryid.Equals("0") ? null : categoryid,
+                                              string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                                              string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                                              string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
+                                              string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
+                                              string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
+                                              0);
 
 
-            //Display a success message
-            <p class="col-md-12 text-center">
-                <span style="color:lawngreen"><strong>New Product Added</strong></span>
-            </p>
+                    //Get the identity value of the last inserted record.
+                    var x = db.GetLastInsertId();
 
+                    //Display a success message
+                    <p class="col-md-12 text-center">
+                        <span style="color:lawngreen"><strong>New Product Added</strong></span>
+                    </p>
+
+                }
+                catch (Exception ex)
+                {
+                    <p class="col-md-12 text-center">
+                        <span style="color:firebrick"><strong>Error: @ex.Message</strong></span>
+                    </p>
+                }
+            }
         }
-        catch (Exception ex)
+        else
         {
-            <p class="col-md-12 text-center">
-                <span style="color:firebrick"><strong>Error: @ex.Message</strong></span>
-            </p>
+            //1st Pass of the page
+            //Initialization of an web control on the page
         }
-
-
-    }
-}
-else
-{
-    //1st Pass of the page
-    //Initialization of an web control on the page
-}
 
 
 
@@ -116,7 +133,7 @@ else
     <div class="row">
         <div class="col-md-6 text-right">
             <label for="ProductName">Name:</label><br />
-            <label for="SupplierID">Supplier:</label><br />
+            <label for="SupplierList">Supplier:</label><br />
             <label for="CategoryID">Category:</label><br />
             <label for="QuantityPerUnit">Qty/Unit:</label><br />
             <label for="UnitPrice">Price:</label><br />
@@ -127,8 +144,44 @@ else
         </div>
         <div class="col-md-6">
             <input type="text" id="ProductName" name="ProductName" placeholder="Enter Product Name" title="ProductName" value="@productname" /><br />
-            <input type="text" id="SupplierID" name="SupplierID" placeholder="Enter Supplier ID" title="Supplier" value="@supplierid" /><br />
-            <input type="text" id="CategoryID" name="CategoryID" placeholder="Enter Category ID" value="@categoryid" /><br />
+            <select id="SupplierList" name="SupplierList">
+                <option value="0">Select supplier...</option>
+                @foreach(var item in supplierlist)
+                {
+                    //When the select control is created and loaded, by default the 1st option tag is shown as the selected option
+                    //The value attribute should be set to the data that is required by the record
+                    //The display text is only required by the user to make the selection
+
+                    //To retain the previous selected value, you need to test the previous selected value against the current item that is being used to create the option line. 
+                    //Remember, the previous value is a "string"
+                    //Therefore: the current item value needs to also be a string
+                    //If the previous selected value is == to the current item then the option tag needs to have the attribute "selected"  added to the tag
+                    if(supplierid == item.SupplierID.ToString()) //previousvalue vs item.value
+                    {
+                        <option value="@item.SupplierID" selected>@item.CompanyName</option>
+                    }
+                    else
+                    {
+                        <option value="@item.SupplierID">@item.CompanyName</option>
+                    }
+                    
+                }
+            </select><br />
+            <select id="CatergoyList" name="CategoryList">
+                 <option value="0">Select Category...</option>
+                         @foreach (var item in categorylist)
+                         {
+                             if (categoryid == item.CategoryID.ToString()) //previousvalue vs item.value
+                             {
+                                 <option value="@item.CategoryID" selected>@item.CategroyName</option>
+                             }
+                             else
+                             {
+                                 <option value="@item.CategoryID">@item.CategoryName</option>
+                             }
+                         }
+                     </select>
+
             <input type="text" id="QuantityPerUnit" name="QuantityPerUnit" placeholder="Enter Product Name" value="@quantityperunit" /><br />
             <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Enter UnitPrice" value="@unitprice" /><br />
             <input type="text" id="UnitsInStock" name="UnitsInStock" placeholder="Enter UnitsInStock" value="@unitsinstock" /><br />
