@@ -1,21 +1,61 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
+
+
+    
+
+    var name = "";
+    var id = "";
+    var db = Database.Open("NWDB");
+    var employeequery = @"Select FirstName
+                          From Employees
+                          Where EmployeeId = @0";
 }
 
 @section banner{
     <h1>Using CheckBoxes</h1>
+
 }
 
 
+@if (IsPost)
+{
+    id = Request.Form["EmployeeId"];
+
+    if (string.IsNullOrEmpty(id))
+    {
+        Console.WriteLine(id);
+    }
+    else
+    {
+        var employee = db.QuerySingle(employeequery, id);
+
+        if(employee == null)
+        {
+            <p>No records found.</p>
+        }
+        else
+        {
+            name = employee[0].ToString();
+        }
+    }
+
+
+
+}
+
 <form id="theForm" method="post">
-    <button value="submit" type="submit">Submit</button>
-    <label for="favouritefood">Pick your favourite food:</label>
-    <select id="favouritefood" name="favouritefood">
-        <option value="">Please pick...</option>
-        <option value="Pizza">Pizza</option>
-        <option value="TunaPizza">Tuna Pizza</option>
-        <option value="Kaiserschmarrn">Kaiserschmarrn</option>
-    </select>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="EmployeeId">Enter an Employee ID:</label>
+            <input type="number" name="EmployeeId" id="EmployeeId" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label >@name</label>
+        </div>
+    </div>
 
 
 
