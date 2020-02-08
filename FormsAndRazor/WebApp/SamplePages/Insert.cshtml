@@ -19,13 +19,13 @@
     var db = Database.Open("NWDB");
 
     var supplierquery = @"SELECT SupplierID, CompanyName
-         FROM Suppliers
-         ORDER BY CompanyName";
+                         FROM Suppliers
+                         ORDER BY CompanyName";
 
 
     var categoryquery = @"SELECT CategoryID, CategoryName
-          FROM Categories
-          ORDER BY CategoryName";
+                          FROM Categories
+                          ORDER BY CategoryName";
 
     //Execution of Select statements
     var supplierlist = db.Query(supplierquery);
@@ -120,91 +120,79 @@
         unitsonorder = "";
         reorderlevel = "";
         discontinued = "";
-
     }
     else
     {
-        //Process the entered data//
-
+        //Process the entered data
 
         //Retreive the data within the input controls
-        //could also do it on top of page, or just here when user pressed the button
         productname = Request.Form["ProductName"];
         supplierid = Request.Form["SupplierList"]; //input from web controls are strings
         categoryid = Request.Form["CategoryList"];
         quantityperunit = Request.Form["QuantityPerUnit"];
         unitprice = Request.Form["UnitPrice"];
-        unitsinstock = Request.Form["UnitsOnStock"];
+        unitsinstock = Request.Form["UnitsInStock"];
         unitsonorder = Request.Form["UnitsOnOrder"];
         reorderlevel = Request.Form["ReorderLevel"];
         discontinued = Request.Form["Discontinued"];
 
-
-
-
-        //Validation Controls DO NOT execute unless you request their execution using IsValid
+        //Validation controls DO NOT execute unless you request their execution using IsValid
         if (Validation.IsValid())
         {
 
-        }
-
-
-        
-        try
-        {
-            //If you have validation that is NOT possible through HTML5 validation OR using Validation Controls you will need to write your own logic to handle the errors.
-            //Example: Lets assume that the Supplier ID is a required field. 
-            //Lets assume that the validation was not performed by HTML5 or using Validation Controls
-
-            if(string.IsNullOrEmpty(supplierid) || int.Parse(supplierid) < 1)
+            try
             {
-                throw new Exception("Invalid supplier id. Please select from the supplied list.");
+                // If you have validation that is NOT possible through HTML 5 validation OR using Validation controls you will need to write your own
+                //    logic to handle the errors
+                // Example: Lets assume that the supplier id is a require field
+                //          Lets assume that the validation was not preformed by HTML 5 or using Validation controls
+                if (string.IsNullOrEmpty(supplierid) || int.Parse(supplierid) < 1)
+                {
+                    throw new Exception("Invalid supplier id. Please select from the supplied list.");
+                }
+
+                //Connect to the database   
+                //var db = Database.Open("NWDB");   do not need here anymore because have done it on top of the page
+
+                //Create the sql insert command
+                var insertcommand = @"INSERT INTO Products (ProductName, SupplierID, CategoryID,
+                            QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder,
+                            ReorderLevel, Discontinued)
+                          VALUES(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
+
+                //Execute the insert command
+                //To execute the insert, update or delete command use .Execute()
+                db.Execute(insertcommand, productname,
+                            supplierid.Equals("0") ? null : supplierid,
+                            categoryid.Equals("0") ? null : categoryid,
+                            string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                            string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                            string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
+                            string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
+                            string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
+                            0);
+
+                //get the identity value of the last inserted record.
+                var x = db.GetLastInsertId();
+
+                //display a successmessage
+                <p class="col-md-12 text-center">
+                    <span style="color:green"><strong>New Product Added @x  </strong></span>
+                </p>
             }
-
-
-
-            //Connect to the Database
-            //var db = Database.Open("NWDB"); Opened on top of page
-
-            //Create the SQL Insert command
-            var insertcommand = @"INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
-                    VALUES(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
-
-
-            //Execute the Insert command
-            //To execute the Insert, Update, or Delete command, use .Execute()
-            db.Execute(insertcommand, productname,
-                                      supplierid.Equals("0") ? null : supplierid,
-                                      categoryid.Equals("0") ? null : categoryid,
-                                      string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
-                                      string.IsNullOrEmpty(unitprice) ? null : unitprice,
-                                      string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
-                                      string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
-                                      string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
-                                      0);
-
-
-            //Get the identity value of the last inserted record.
-            var x = db.GetLastInsertId();
-
-            //Display a success message
-            <p class="col-md-12 text-center">
-                <span style="color:lawngreen"><strong>New Product Added @x</strong></span>
-            </p>
-
-        }
-        catch (Exception ex)
-        {
-            <p class="col-md-12 text-center">
-                <span style="color:firebrick"><strong>Error: @ex.Message</strong></span>
-            </p>
+            catch (Exception ex)
+            {
+                <p class="col-md-12 text-center">
+                    <span style="color:firebrick"><strong>Error: @ex.Message</strong></span>
+                </p>
+            }
         }
     }
 }
 else
 {
-    //1st Pass of the page
-    //Initialization of an web control on the page
+    //1st pass of the page
+    //initialization of an web control on the page
 }
 
 
@@ -212,15 +200,15 @@ else
 
 
 
-@* Declare a control to display the Validation Control error messages. 
-   Errors will only appear if there is a failure to validat ea control
-   The messages will automatically diesappear on each submit (no need to clear)
-   The message will appear as a bulletted list
-   All associate errors with the field will have their message displayed
-    
-   If you wish you could instead display the error beside the actual control using @Html.ValidationMessage("ControlName")
-   Consider using one or the other style of displaying your messages*@
-   @Html.ValidationSummary()
+@* Declare a control to display the Validation Control error messages.
+    Errors will only appear if there is a failure to validat ea control
+    The messages will automatically diesappear on each submit (no need to clear)
+    The message will appear as a bulletted list
+    All associate errors with the field will have their message displayed
+
+    If you wish you could instead display the error beside the actual control using @Html.ValidationMessage("ControlName")
+    Consider using one or the other style of displaying your messages*@
+@Html.ValidationSummary()
 
 <form id="theForm" method="post">
     <div class="row">
@@ -253,7 +241,7 @@ else
             <input type="text" id="ProductName" name="ProductName" placeholder="Enter Product Name" title="ProductName" value="@productname" /><br />
             <select id="SupplierList" name="SupplierList">
                 <option value="0">Select supplier...</option>
-                @foreach (var item in supplierlist)
+                @foreach (var item in supplierlist) //supplierlist is for the execution of the database query (the results it found)
                 {
                     //When the select control is created and loaded, by default the 1st option tag is shown as the selected option
                     //The value attribute should be set to the data that is required by the record
