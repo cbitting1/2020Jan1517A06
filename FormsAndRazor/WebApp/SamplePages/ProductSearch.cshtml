@@ -10,13 +10,13 @@
                         + "FROM Products "
                         + "WHERE ProductName like @0 "
                         + "ORDER BY ProductName";
-
 }
+
 @section banner{
     <h1>Product Search</h1>
 }
+
 <div class="form-group">
-  
     <form id="theForm" action="" method="post">
         <div class="row">
             <div class="col-sm-3">
@@ -52,16 +52,15 @@
                             grid.Column(columnName: "CategoryID", header: "Cat"),
                             grid.Column(columnName: "UnitPrice", header: "$"),
                             grid.Column(columnName: "UnitsInStock", header: "UOS"),
-                            grid.Column(header: "", format: @<text><a href="~/SamplePages/ProductEdit.cshtml">Edit</a></text>)));
+                            grid.Column(header: "", format: @<text><a href="~/SamplePages/ProductEdit.cshtml?pid=@item.ProductID">Edit</a></text>)
+                                ));
                         }
                     }
                 }
             </div>
         </div>
-
-        @* Since the WebGrid is in the form which uses a method: post, the WebGrid paging is not working. WHY? The WebGrid uses a method: get. Thus the conflict on inproper paging. To solve this 
-           problem, we add the following script to cause a post to happen on the WebGrid's paging event.*@
-
+        @* Since the webgrid is in the form which use a method:post, the webgrid paging is not working. WHY? The webgrid uses a method:get. Thus the conflict on inproper paging.
+            To solve this problem, we add the following script to cause a post to happen on the webgrid's paging event.*@
         <script type="text/javascript">
             var links = $('a[href*=page], a[href*=sort]'), form = $('form');
             links.click(function () {
@@ -70,6 +69,5 @@
                 form.submit();
             });
         </script>
-
     </form>
 </div> 

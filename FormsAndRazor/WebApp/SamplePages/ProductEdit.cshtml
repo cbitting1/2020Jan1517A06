@@ -3,7 +3,6 @@
     Layout = "~/_Layout.cshtml";
 
 
-
     var pid = Request.QueryString["pid"];
     if (pid.IsEmpty())
     {
@@ -55,38 +54,25 @@
                         + "WHERE ProductID = @0";
     var queryProducts = db.QuerySingle(queryStatement, pid);
 
-
-
-    //Required Validation and StringLength validation
     Validation.Add("ProductName",
-          Validator.Required("The Product Name is a required field."),
-          Validator.StringLength(40, 1, "Product Name is limited to 40 characters."));
-
+         Validator.Required("Product name is a required field."),
+         Validator.StringLength(40, 1, "Product name is limited to 40 characters"));
     //StringLength validation on a nullable field
     Validation.Add("QuantityPerUnit",
-          Validator.StringLength(20, 0, "Quantity Per Unit is limited to 20 characters."));
-
-
+          Validator.StringLength(20, 0, "Quantity per unit is limited to 20 characters"));
     //Datatype validation and Range validation
     Validation.Add("UnitPrice",
         Validator.Decimal("Unit Price must be a dollar amount"),
-        Validator.Range(0.00, double.MaxValue, "Unit Price must be greater than 0.00"));
-
-
+        Validator.Range(0.00, double.MaxValue, "Unit price must be greater than 0.00"));
     Validation.Add("UnitsInStock",
-        Validator.Integer("QoH must be a number."),
-        Validator.Range(0, 32767, "QoH must be between 0 and 32767."));
-
-
+        Validator.Integer("QoH must be a number"),
+        Validator.Range(0, 32767, "QoH must be between 0 and 32767"));
     Validation.Add("UnitsOnOrder",
-        Validator.Integer("QoO must be a number."),
-        Validator.Range(0, 32767, "QoO must be between 0 and 32767."));
-
-
+        Validator.Integer("QoO must be a number"),
+        Validator.Range(0, 32767, "QoO must be between 0 and 32767"));
     Validation.Add("ReorderLevel",
-        Validator.Integer("Reorder Level must be a number."),
-        Validator.Range(0, 32767, "Reorder Level must be between 0 and 32767."));
-
+        Validator.Integer("Reorder level must be a number"),
+        Validator.Range(0, 32767, "Reorder level must be between 0 and 32767"));
 }
 
 
@@ -98,9 +84,10 @@
 {
     if (thebutton.Equals("cancel"))
     {
-        //A) could redirect to the search page
-        //B) reset the web controls to the current database record and display appropriate message
-        //C) empty the web controls and display an appropriate message
+        //a) could redirect to the search page
+        //b) reset the web controls to the current database current
+        //    and display an appropriate message
+        //c) empty the web controls and display an appropriate message
         productid = "";
         productname = "";
         supplierid = "0";
@@ -112,89 +99,112 @@
         reorderlevel = "";
         discontinued = "0";
         <p>
-            <span style="color:blue">User has cancelled the action. Return to seachr for another product.</span>
-            <a href="~/SamplePages/ProductSearch.cshtml">Go to search...</a>
+            <span style="color:blue">
+                User has cancelled the action. Return to search for another product
+            </span>
+            <a href="~/SamplePages/ProductSearch.cshtml">go to search ...</a>
         </p>
+
     }
     else if (thebutton.Equals("delete"))
     {
         if (string.IsNullOrEmpty(productid))
         {
             <p>
-                <span style="color:blue">No product is selected. Return to search for another product.</span>
-                <a href="~/SamplePages/ProductSearch.cshtml">Go to search...</a>
+                <span style="color:blue">
+                    No product is selected. Return to search for another product
+                </span>
+                <a href="~/SamplePages/ProductSearch.cshtml">go to search ...</a>
             </p>
         }
         else
         {
-
-            //Delete can be logical or physical
+            //delete can be logical or physical
             //A physical delete removes a record from the database
-            //A logical delte sets an attribute onthe record which logic uses to ignore the record when processing.
+            //A logical delete sets an attribute on the record which
+            //     logic uses to ignore the record when processing
 
-            //A physical delte needs only the PK to remove the record.
-            //A physical delte does not worry about any other data, validate or not
-            //A physical delte uses the SQL DELTE command.
+            //A physical delete needs only the pkey to remove the record
+            //A physical delete does not worry about any other data, validate or not
+            //A physical delete uses the sql DELETE command
 
-            //A logical delte needs the PK and the setting of the attribute vlaue.
-            //A logical delte uses the SQ LUPDATE command to alter the spcialized attribute.
+            //A logical delete needs the pkey and the setting of the attribute value
+            //A logical delete uses the sql Update command to alter the speicalized attribute
 
 
             try
             {
-                //Connect to Database --> done above: no code necessary
+                //connect to database
+                //done above: no code necessary
 
-                //Command for logical delte
+                //command for logical delete
                 var updatecommand = @"UPDATE Products
-                                           SET Discontinued = @,
-                                           WHERE ProductID = @1";
+    SET Discontinued = @0
+    WHERE ProductID = @1";
 
-                //Execution
-                //The return result of the execution is the number of rows affected!!!
-                int rowsaffected = db.Execute(updatecommand, productname);
-                           
+                //execution for logical delete
+                //the return result of the execution is the number of row affected
+                int rowsaffected = db.Execute(updatecommand, 1, productid);
+
+                //command for physical delete
+                //var deletecommand = @"DELETE Products
+                //            WHERE ProductID = @0";
+
+                //execution for logical delete
+                //the return result of the execution is the number of row affected
+                //int rowsaffected = db.Execute(updatecommand, productid);
+
 
                 if (rowsaffected > 0)
                 {
-                    //Row was found and changed
-                        <p><span style="color:green">Product updated.</span></p>
-                    }
-                    else
-                    {
-                        //No row was found to change
-                        <p>
-                            <span style="color:blue">Update not done. No product called @productname with a product id of @productid was found on file.</span>
-                            <a href="~/SamplePages/ProductSearch.cshtml">Go to search...</a>
-                        </p>
-                        productid = "";
-                    }
-
+                    //row was found and changed
+                    <p><span style="color:green">Product removed.</span></p>
+                    discontinued = "1";
+                    productid = "";
+                    //optionally clear the form
                 }
-                catch (Exception ex)
+                else
                 {
+                    //no row was found to change
                     <p>
-                        <span style="color:firebrick">Update failed: Error: @ex.Message</span>
+                        <span style="color:blue">
+                            Discontinued not done. No product called @productname with
+                            a product id of @productid was found on file.
+                        </span>
+                        <a href="~/SamplePages/ProductSearch.cshtml">Go to search ...</a>
                     </p>
+                    productid = "";
                 }
+
+            }
+            catch (Exception ex)
+            {
+                <p>
+                    <span style="color:firebrick">
+                        Remove failed: Error: @ex.Message
+                    </span>
+                </p>
+            }
         }
     }
-
     else
     {
 
 
         //Is there any other validation that is required for the edit that was not used during the insert?
-        //YES
-        //During the insert, no PK value was required since the product record has an IDENITY() PK.
-        //During the insert, the PK value is generated
-        //For the update however, you NEED a PK value to locate your record that will be altered on the database.
-        //THEREFORE you MUST ensure that a PK value exists BEFORE any attempt to process the update logic.
+        //Yes.
+        //During the insert, no pkey value was required since the product record has an IDENTITY() pkey.
+        //During the insert, the pkey value is generated
+        //For the update however, you NEED a pkey value to locate your record that will be altered on the database
+        //THEREFORE you MUST ensure that a pkey value exists BEFORE any attempt to process the update logic.
 
         if (string.IsNullOrEmpty(productid))
         {
             <p>
-                <span style="color:blue">No product is selected. Return to search for another product.</span>
-                <a href="~/SamplePages/ProductSearch.cshtml">Go to search...</a>
+                <span style="color:blue">
+                    No product is selected. Return to search for another product
+                </span>
+                <a href="~/SamplePages/ProductSearch.cshtml">go to search ...</a>
             </p>
         }
         else
@@ -203,43 +213,47 @@
             {
                 try
                 {
-                    //Connect to Database --> done above: no code necessary
+                    //Connect to database
+                    //Done above: no code necessary
 
                     //Command
                     var updatecommand = @"UPDATE Products
-                                  SET ProductName = @0,
-                                  SupplierID = @1,
-                                  CategoryID = @2,
-                                  QuantityPerUnit = @3,
-                                  UnitPrice = @4,
-                                  UnitsInStock = @5,
-                                  UnitsOnOrder = @6,
-                                  ReorderLevel = @7,
-                                  Discontinued = @8
-                             WHERE ProductID = @9";
+        SET ProductName = @0,
+            SupplierID = @1,
+            CategoryID = @2,
+            QuantityPerUnit = @3,
+            UnitPrice = @4,
+            UnitsInStock = @5,
+            UnitsOnOrder = @6,
+            ReorderLevel = @7,
+            Discontinued = @8
+        WHERE ProductID = @9";
 
-                    //Execution
-                    //The return result of the execution is the number of rows affected!!!
+                    //execution
+                    //the return result of the execution is the number of row affected
                     int rowsaffected = db.Execute(updatecommand, productname,
-                                 supplierid.Equals("0") ? null : supplierid,
-                                 categoryid.Equals("0") ? null : categoryid,
-                                 string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
-                                 string.IsNullOrEmpty(unitprice) ? null : unitprice,
-                                 string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
-                                 string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
-                                 string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
-                                 discontinued, productid);
+                            supplierid.Equals("0") ? null : supplierid,
+                            categoryid.Equals("0") ? null : categoryid,
+                            string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                            string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                            string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
+                            string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
+                            string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
+                            discontinued, productid);
                     if (rowsaffected > 0)
                     {
-                        //Row was found and changed
+                        //row was found and changed
                         <p><span style="color:green">Product updated.</span></p>
                     }
                     else
                     {
-                        //No row was found to change
+                        //no row was found to change
                         <p>
-                            <span style="color:blue">Update not done. No product called @productname with a product id of @productid was found on file.</span>
-                            <a href="~/SamplePages/ProductSearch.cshtml">Go to search...</a>
+                            <span style="color:blue">
+                                Updated not done. No product called @productname with
+                                a product id of @productid was found on file.
+                            </span>
+                            <a href="~/SamplePages/ProductSearch.cshtml">Go to search ...</a>
                         </p>
                         productid = "";
                     }
@@ -248,27 +262,26 @@
                 catch (Exception ex)
                 {
                     <p>
-                        <span style="color:firebrick">Update failed: Error: @ex.Message</span>
+                        <span style="color:firebrick">
+                            Update failed: Error: @ex.Message
+                        </span>
                     </p>
                 }
             }
         }
     }
 }
-
-else //for IsPost
+else //For IsPost
 {
-    //if this page is being shown for the "first time"
-    //the page accesses the database for the current record
-    //to display to the user
+    //If this page is being shown for the "first time"
+    //The page accesses the database for the current record
+    //To display to the user
     queryProducts = db.QuerySingle(queryStatement, pid);
 
-    //moving the current record data to the form controls
+    //Moving the current record data to the form controls
     //NEVER code to the data supplied
-    //the Products table on the Northwind database does not
-    //  have a record where the nullable fields are actual null
-    //the following code takes into account fields which actually
-    //  maybe null
+    //The Products table on the Northwind database does not have a record where the nullable fields are actual null
+    //The following code takes into account fields which actually maybe null
     productid = queryProducts.ProductID.ToString();
     productname = queryProducts.ProductName;
     supplierid = queryProducts.SupplierID == null ? "0" : queryProducts.SupplierID.ToString();
@@ -281,20 +294,19 @@ else //for IsPost
     discontinued = queryProducts.Discontinued.ToString();//from sql 0/1
 }
 <div class="form-group">
-
     <form id="theForm" action="" method="post">
         <div class="row">
             <div class="col-sm-6 text-right">
-                <label id="forProductID">Product ID</label><br />
-                <label id="forProductName">Product Name</label><br />
-                <label id="forSupplierList">Supplier</label><br />
-                <label id="forCategoryList">Category</label><br />
-                <label id="forQuantityPerUnit">Quantity Per Unit</label><br />
-                <label id="forUnitPrice">Unit Price</label><br />
-                <label id="forUnitsInStock">Units In Stock</label><br />
-                <label id="forUnitsOnOrder">Units On Order</label><br />
-                <label id="forReorderLevel">ReorderLevel</label><br />
-                <label id="forDiscontinued">Discontinued</label><br />
+                <label for="ProductID">Product ID</label><br />
+                <label for="ProductName" required>Product Name</label><br />
+                <label for="SupplierList">Supplier</label><br />
+                <label for="CategoryList">Category</label><br />
+                <label for="QuantityPerUnit">Quantity Per Unit</label><br />
+                <label for="UnitPrice">Unit Price</label><br />
+                <label for="UnitsInStock">Units In Stock</label><br />
+                <label for="UnitsOnOrder">Units On Order</label><br />
+                <label for="ReorderLevel">ReorderLevel</label><br />
+                <label for="Discontinued">Discontinued</label><br />
             </div>
             <div class="col-sm-6">
                 <input type="text" name="ProductID" value="@productid" readonly /><br />
@@ -341,13 +353,23 @@ else //for IsPost
                     <input type="checkbox" name="Discontinued" value="0" /><br /><br />
                 }
             </div>
+
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
+                @* To suppress validation on controls which a on click button event happens you can add the attribute formnovalidate to the button *@
                 <button type="submit" name="theButton" id="theUpdate" class="btn btn-primary" value="update">Update</button>&nbsp;&nbsp;&nbsp;
-                <button type="submit" name="theButton" id="theDelete" class="btn btn-primary" value="delete">Delete</button>&nbsp;&nbsp;&nbsp;
-                <button type="submit" name="theButton" id="theCancel" class="btn btn-primary" value="cancel">Cancel</button>
+                <button type="submit" name="theButton" id="theDelete" class="btn btn-danger" value="delete" formnovalidate>Delete</button>&nbsp;&nbsp;&nbsp;
+                <button type="submit" name="theButton" id="theCancel" class="btn btn-light" value="cancel" formnovalidate>Cancel</button>
             </div>
         </div>
+        @* This Javascript is used to ask for user confirmation on pressing a button; in this case, it is the Delete button.
+           Notice that the name attribute which is used by Request.Form is identical whereas the id attribute is unique which is used by Javascript*@
+        <script type="text/javascript">
+            document.getElementById("theDelete").onclick = ConfirmDelte;
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to discontinue @productname?")
+            }
+        </script>
     </form>
 </div>
