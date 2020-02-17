@@ -139,8 +139,8 @@
 
                 //command for logical delete
                 var updatecommand = @"UPDATE Products
-    SET Discontinued = @0
-    WHERE ProductID = @1";
+                                        SET Discontinued = @0
+                                        WHERE ProductID = @1";
 
                 //execution for logical delete
                 //the return result of the execution is the number of row affected
@@ -218,16 +218,16 @@
 
                     //Command
                     var updatecommand = @"UPDATE Products
-        SET ProductName = @0,
-            SupplierID = @1,
-            CategoryID = @2,
-            QuantityPerUnit = @3,
-            UnitPrice = @4,
-            UnitsInStock = @5,
-            UnitsOnOrder = @6,
-            ReorderLevel = @7,
-            Discontinued = @8
-        WHERE ProductID = @9";
+                        SET ProductName = @0,
+                            SupplierID = @1,
+                            CategoryID = @2,
+                            QuantityPerUnit = @3,
+                            UnitPrice = @4,
+                            UnitsInStock = @5,
+                            UnitsOnOrder = @6,
+                            ReorderLevel = @7,
+                            Discontinued = @8
+                        WHERE ProductID = @9";
 
                     //execution
                     //the return result of the execution is the number of row affected
@@ -296,6 +296,14 @@ else //For IsPost
     reorderlevel = queryProducts.ReorderLevel == null ? "" : queryProducts.ReorderLevel.ToString();
     discontinued = queryProducts.Discontinued.ToString();//from sql 0/1
 }
+
+
+
+
+
+
+
+
 <div class="form-group">
     <form id="theForm" action="" method="post">
         <div class="row">
