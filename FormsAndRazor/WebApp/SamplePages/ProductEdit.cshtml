@@ -8,6 +8,7 @@
     {
         Response.Redirect("ProductSearch.cshtml");
     }
+
     var productid = Request.Form["ProductID"];
     var productname = Request.Form["ProductName"];
     var supplierid = Request.Form["SupplierList"];
@@ -42,12 +43,12 @@
     }
     var db = Database.Open("NWDB");
     var supplierStatement = "SELECT SupplierID, CompanyName "
-                       + "FROM Suppliers "
-                       + "ORDER BY CompanyName";
+                           + "FROM Suppliers "
+                           + "ORDER BY CompanyName";
     var querySuppliers = db.Query(supplierStatement);
     var categoryStatement = "SELECT CategoryID, CategoryName "
-                       + "FROM Categories "
-                       + "ORDER BY CategoryName";
+                           + "FROM Categories "
+                           + "ORDER BY CategoryName";
     var queryCategories = db.Query(categoryStatement);
     var queryStatement = "SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued "
                         + "FROM Products "
@@ -150,7 +151,7 @@
                 //var deletecommand = @"DELETE Products
                 //            WHERE ProductID = @0";
 
-                //execution for logical delete
+                //execution for physical delete
                 //the return result of the execution is the number of row affected
                 //int rowsaffected = db.Execute(updatecommand, productid);
 
@@ -214,7 +215,7 @@
                 try
                 {
                     //Connect to database
-                    //Done above: no code necessary
+                    //Done above: no code necessaryproductname
 
                     //Command
                     var updatecommand = @"UPDATE Products
@@ -337,7 +338,7 @@ else //For IsPost
                     }
                 </select><br />
                 <select name="CategoryList">
-                    <option value="0">select...</option>
+                    <option value="0">Select...</option>
                     @foreach (var acollectionrow in queryCategories)
                     {
                         if (acollectionrow.CategoryID.ToString() == categoryid)
