@@ -2,14 +2,14 @@
     Layout = "~/_Layout.cshtml";
 
 
-    
+
 
     var name = "";
     var id = "";
     var db = Database.Open("NWDB");
-    var employeequery = @"Select FirstName
-                          From Employees
-                          Where EmployeeId = @0";
+    var employeequery = @"Select FirstName, LastName, Title, City
+                  From Employees
+                  Where EmployeeId = @0";
 }
 
 @section banner{
@@ -18,31 +18,29 @@
 }
 
 
-@if (IsPost)
-{
-    id = Request.Form["EmployeeId"];
-
-    if (string.IsNullOrEmpty(id))
+@*@if (IsPost)
     {
-        Console.WriteLine(id);
-    }
-    else
-    {
-        var employee = db.QuerySingle(employeequery, id);
+        id = Request.Form["EmployeeId"];
 
-        if(employee == null)
+        if (string.IsNullOrEmpty(id))
         {
-            <p>No records found.</p>
+            Console.WriteLine(id);
         }
         else
         {
-            name = employee[0].ToString();
-        }
-    }
+            var employee = db.QuerySingle(employeequery, id);
 
+            if(employee == null)
+            {
+                <p>No records found.</p>
+            }
+            else
+            {
+                var grid = new WebGrid(employee);
 
+            }
+}*@
 
-}
 
 <form id="theForm" method="post">
     <div class="row">
@@ -52,13 +50,39 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <label >@name</label>
-        </div>
+        @if (IsPost)
+        {
+            id = Request.Form["EmployeeId"];
+
+            if (string.IsNullOrEmpty(id))
+            {
+                Console.WriteLine(id);
+            }
+            else
+            {
+                var employee = db.Query(employeequery, id);
+
+                if (employee.Count() == 0)
+                {
+                    <p>No records found.</p>
+                }
+                else
+                {
+
+                    var grid = new WebGrid(employee);
+                    @grid.GetHtml("table table-borderd table-striped tabe-hover",
+                    mode: WebGridPagerModes.All,
+                    lastText: "Last",
+                    firstText: "First",
+                    columns: grid.Columns(
+                        grid.Column(columnName: "FirstName", header: "First Name", style: "w-50 "),
+                        grid.Column(columnName: "LastName", header: "Last Name", style: "p-3"),
+                        grid.Column(columnName: "Title", style: "w-25 p-3"),
+                        grid.Column(columnName: "City", style: "w-25 p-3")));
+                }
+            }
+        }
     </div>
-
-
-
 </form>
 
 

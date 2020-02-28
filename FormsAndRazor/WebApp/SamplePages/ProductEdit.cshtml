@@ -318,7 +318,7 @@ else //For IsPost
                     {
                         if (acollectionrow.SupplierID.ToString() == supplierid)
                         {
-                            <option value="@acollectionrow[0]" selected>@acollectionrow[1]</option>
+                            <option value="@acollectionrow.SupplierID" selected>@acollectionrow.CompanyName</option>
                         }
                         else
                         {
