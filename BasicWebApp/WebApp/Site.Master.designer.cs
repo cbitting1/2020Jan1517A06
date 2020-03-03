@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp {
-    
-    
-    public partial class SiteMaster {
-        
+namespace WebApp
+{
+
+
+    public partial class SiteMaster
+    {
+
         /// <summary>
         /// BasicAspNetMenu control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Menu BasicAspNetMenu;
-        
+
         /// <summary>
         /// BasicAspNetMenuDS control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapDataSource BasicAspNetMenuDS;
-        
+
         /// <summary>
         /// MainContent control.
         /// </summary>

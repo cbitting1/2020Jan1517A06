@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">CPSC1517-A06</a>
+                    <a class="navbar-brand" runat="server" href="~/">CPSC1517-A06</a>  <%-- in in-class assignments we have to change CPSC1517-A06 to our name--%>
                 </div>
                 <div class="navbar-collapse collapse">
                   <%--  <ul class="nav navbar-nav">
@@ -70,7 +70,7 @@
                          EnableViewState="false">
                     </asp:Menu>
                     <asp:SiteMapDataSource ID="BasicAspNetMenuDS" runat="server" 
-                        ShowStartingNode="false"/>
+                        ShowStartingNode="false"/> <%--web.Sitemap is on the right on the very bottom (that's where the drop down is referencing to/from)--%>
                 </div>
             </div>
         </div>
