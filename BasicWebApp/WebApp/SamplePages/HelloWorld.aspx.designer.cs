@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp.SamplePages {
-    
-    
-    public partial class HelloWorld {
-        
+namespace WebApp.SamplePages
+{
+
+
+    public partial class HelloWorld
+    {
+
         /// <summary>
         /// PromptLabel control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PromptLabel;
-        
+
         /// <summary>
         /// NameArg control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NameArg;
-        
+
         /// <summary>
         /// PressMe control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button PressMe;
-        
+
         /// <summary>
         /// OutputArea control.
         /// </summary>

@@ -19,12 +19,12 @@ namespace WebApp.SamplePages
             //When the PressMe button is pressed, this code will be executed.
             //This is called event-driven logic
             //The event was the pressing of the button
-            //Sees the Onclick propertyof your control on the web page
+            //Sees the Onclick property of your control on the web page
 
             //The ID name of a control acts as the variable name in your code
             //Since, each control is a class instance, access to the contents of a class is by the class properties
             //Just like Razor, 95% of all data content is returned as a string
-            if(string.IsNullOrEmpty(NameArg.Text))
+            if(string.IsNullOrEmpty(NameArg.Text)) //NameArg is the ID of the TextField (where the user enters his name)
             {
                 OutputArea.Text = "Enter your name, please";
             }
