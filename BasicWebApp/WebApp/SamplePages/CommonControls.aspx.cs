@@ -65,7 +65,7 @@ namespace WebApp.SamplePages
                 CollectionList.DataBind(); //CollectionList is the name of the Dropdown
 
                 //d)OPTIONALLY you can place a prompt line on your control
-                CollectionList.Items.Insert(0, new ListItem("Select..."/*, "0"*/)); //Die erste 0 ist die Stelle des Indexes (in diesem Falle an "1." Stelle)
+                CollectionList.Items.Insert(0, new ListItem("Select...", "0")); //Die erste 0 ist die Stelle des Indexes (in diesem Falle an "1." Stelle)
                                 //("Select...", "0") --> is a String and the Value (NOTE: we could also just put in the "Select..." without the Value)
             }
         }
@@ -103,7 +103,7 @@ namespace WebApp.SamplePages
                 RadioButtonListChoice.SelectedValue = numberchoice.ToString();
 
                 //Set the checkbox
-                if(numberchoice == 2 || numberchoice == 4)
+                if (numberchoice == 2 || numberchoice == 4)
                 {
                     CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 }
@@ -128,6 +128,39 @@ namespace WebApp.SamplePages
                 //The best policy is to use .SelectedValue 
                 DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
             }
+        }
+
+        protected void LinkButtonCollection_Click(object sender, EventArgs e)
+        {
+            if (CollectionList.SelectedValue == "0")
+            {
+                MessageLabel.Text = "No Selection was made. Please make a selection from the dropdown list.";
+            }
+            else if (CollectionList.SelectedValue == "1")
+            {
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
+                CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
+                TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+            }
+            else if (CollectionList.SelectedValue == "2")
+            {
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
+                CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
+                TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+            }
+            else if (CollectionList.SelectedValue == "3")
+            {
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
+                CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
+                TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+            }
+            else if (CollectionList.SelectedValue == "4")
+            {
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
+                CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
+                TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+            }
+
         }
     }
 }

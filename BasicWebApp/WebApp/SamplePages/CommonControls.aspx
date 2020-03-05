@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-6">
             <asp:DropDownList ID="CollectionList" runat="server" CssClass="form-control"></asp:DropDownList>&nbsp;&nbsp;
-            <asp:LinkButton ID="LinkButtonCollection" runat="server">Submit choice from List</asp:LinkButton>
+            <asp:LinkButton ID="LinkButtonCollection" runat="server" OnClick="LinkButtonCollection_Click">Submit choice from List</asp:LinkButton>
         </div>
     </div>
 
