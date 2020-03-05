@@ -12,7 +12,8 @@
         Web page root menu items for sub menu MAY themselves point to another page-->
     <siteMapNode url="" title="Samples" description="root of sub menu, appears on root menu">
       <siteMapNode url="~/SamplePages/HelloWorld.aspx" title="Hello World" description="sub menu item" />
-      <siteMapNode url="~/SamplePages/CommonControls" title="Common Controls" description="sub menu item" />
+      <siteMapNode url="~/SamplePages/CommonControls.aspx" title="Common Controls" description="sub menu item" />
+      <siteMapNode url="~/SamplePages/JobApp.aspx" title="Formatting and CheckBoxesList" description="sub menu item" />
     </siteMapNode>
     
     <siteMapNode url="~/Contact.aspx" title="Contact"  description="given" />
