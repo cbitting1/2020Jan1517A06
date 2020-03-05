@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp.SamplePages {
-    
-    
-    public partial class CommonControls {
-        
+namespace WebApp.SamplePages
+{
+
+
+    public partial class CommonControls
+    {
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// TextBoxNumberChoice control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxNumberChoice;
-        
+
         /// <summary>
         /// SubmitButtonChoice control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitButtonChoice;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// RadioButtonListChoice control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonListChoice;
-        
+
         /// <summary>
         /// Literal1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal1;
-        
+
         /// <summary>
         /// CheckBoxChoice control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxChoice;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// DisplayReadOnly control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DisplayReadOnly;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// CollectionList control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CollectionList;
-        
+
         /// <summary>
         /// LinkButtonCollection control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonCollection;
-        
+
         /// <summary>
         /// MessageLabel control.
         /// </summary>
