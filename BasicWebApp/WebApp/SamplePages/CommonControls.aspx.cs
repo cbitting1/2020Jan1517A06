@@ -141,24 +141,32 @@ namespace WebApp.SamplePages
                 DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
                 CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+
+                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "2")
             {
                 DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
                 CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+
+                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "3")
             {
                 DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
                 CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+
+                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "4")
             {
                 DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
                 CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
+
+                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
 
         }
