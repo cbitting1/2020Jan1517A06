@@ -132,6 +132,8 @@ namespace WebApp.SamplePages
 
         protected void LinkButtonCollection_Click(object sender, EventArgs e)
         {
+            RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
+
             if (CollectionList.SelectedValue == "0")
             {
                 MessageLabel.Text = "No Selection was made. Please make a selection from the dropdown list.";
@@ -142,7 +144,7 @@ namespace WebApp.SamplePages
                 CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
 
-                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
+                //RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "2")
             {
@@ -150,7 +152,7 @@ namespace WebApp.SamplePages
                 CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
 
-                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
+                //RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "3")
             {
@@ -158,7 +160,7 @@ namespace WebApp.SamplePages
                 CheckBoxChoice.Checked = false; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
 
-                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
+                //RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
             else if (CollectionList.SelectedValue == "4")
             {
@@ -166,7 +168,7 @@ namespace WebApp.SamplePages
                 CheckBoxChoice.Checked = true; //checked will turn on the checkbox (if we say "true" or off when we say "false")
                 TextBoxNumberChoice.Text = CollectionList.SelectedIndex.ToString();
 
-                RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
+                //RadioButtonListChoice.SelectedValue = CollectionList.SelectedValue;
             }
 
         }
