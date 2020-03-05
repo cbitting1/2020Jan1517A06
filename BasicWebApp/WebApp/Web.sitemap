@@ -18,6 +18,10 @@
     
     <siteMapNode url="~/Contact.aspx" title="Contact"  description="given" />
     <siteMapNode url="~/About.aspx" title="About"  description="given" />
-    
+
+
+
+    <siteMapNode url="~/SamplePages/Movies.aspx" title="Movie Library (Test)"  description="Practice Page" />
+
   </siteMapNode>
 </siteMap>
