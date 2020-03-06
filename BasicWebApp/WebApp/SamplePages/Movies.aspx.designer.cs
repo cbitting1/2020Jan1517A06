@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp.SamplePages {
-    
-    
-    public partial class Movies {
-        
+namespace WebApp.SamplePages
+{
+
+
+    public partial class Movies
+    {
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// MovieTitle control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MovieTitle;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// YearMovie control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox YearMovie;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// MediaSelection control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList MediaSelection;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// MovieRatings control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList MovieRatings;
-        
+
         /// <summary>
         /// Label5 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-        
+
         /// <summary>
         /// StarList control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList StarList;
-        
+
         /// <summary>
         /// Label6 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
+
         /// <summary>
         /// MovieISBN control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MovieISBN;
-        
+
         /// <summary>
         /// Submit control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Submit;
-        
+
         /// <summary>
         /// MessageLabel control.
         /// </summary>

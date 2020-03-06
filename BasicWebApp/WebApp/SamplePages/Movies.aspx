@@ -21,9 +21,9 @@
 
                 <asp:Label ID="Label3" runat="server" Text="Media" AssociatedControlID="MediaSelection"></asp:Label>
                 <asp:RadioButtonList ID="MediaSelection" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                    <asp:ListItem Value="1">DVD</asp:ListItem>
-                    <asp:ListItem Value="2">VHS</asp:ListItem>
-                    <asp:ListItem Value="3">File</asp:ListItem>
+                    <asp:ListItem Value="1">&nbsp;DVD&nbsp;&nbsp;</asp:ListItem>
+                    <asp:ListItem Value="2">&nbsp;VHS&nbsp;&nbsp;</asp:ListItem>
+                    <asp:ListItem Value="3">&nbsp;File</asp:ListItem>
                 </asp:RadioButtonList>
 
 
@@ -38,27 +38,22 @@
                     <asp:ListItem>Restricted (R)</asp:ListItem>
                 </asp:CheckBoxList>
 
-
+              
                 <asp:Label ID="Label5" runat="server" Text="Rating" AssociatedControlID="MovieRatings"></asp:Label>
                 <asp:DropDownList ID="StarList" runat="server" CssClass="form-control" ></asp:DropDownList>
 
 
                 <asp:Label ID="Label6" runat="server" Text="ISBN" AssociatedControlID="MovieISBN"></asp:Label>
                 <asp:TextBox ID="MovieISBN" runat="server"></asp:TextBox>
-
+                
+                
+                <div class="col-md-10">
+                         <asp:Button ID="Submit" runat="server" Text="Add to Library" CssClass="btn btn-success" OnClick="Submit_Click"/>
+                         <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
+                </div>
             </fieldset>
-
         </div>
-         <div class="col-md-6">
-             <asp:Button ID="Submit" runat="server" Text="Add to Library" CssClass="btn btn-success"/>
-  
-             <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
-        </div>
-    </div>
-
 
     <script src="../Scripts/bootwrap-freecode.js"></script>
-
+</div>
 </asp:Content>
-
-
