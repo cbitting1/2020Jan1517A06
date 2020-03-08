@@ -74,7 +74,7 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <br /><br />
-            <asp:Label ID="MessageLabel" runat="server" ></asp:Label>      
+            <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>      
         </div>
     </div>
    

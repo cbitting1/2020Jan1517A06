@@ -30,8 +30,8 @@ namespace WebApp.SamplePages
                 //If the page is NOT PostBack, it means that this is the first time the page has been displayed
                 //You can do page initialization by testing the IsPostBack
                 //Create a List<T> where T is a class that has 2 columns: a value and a text display
-                        //In die Klammer kommt die Type o fobjects (wo jetzt das T steht --> zb int oder float)
-                        //Das T ist der Type of object, in diesem Fall ist der Type of object eine class die wir programmmiert ist oder build in ist
+                        //In die Klammer kommt die Type of objects (wo jetzt das T steht --> zb int oder float)
+                        //Das T ist der Type of object, in diesem Fall ist der Type of object eine class die wir programmmiert haben ist oder build in ist
 
                 //int x
                 //List DataCollection
