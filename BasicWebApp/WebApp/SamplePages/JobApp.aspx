@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Job Application" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="JobApp.aspx.cs" Inherits="WebApp.SamplePages.JobApp" %>
+﻿ <%@ Page Title="Job Application" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="JobApp.aspx.cs" Inherits="WebApp.SamplePages.JobApp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <h1>Job Application</h1>
     <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-offset-1 col-md-10"> <%--offset is one and col-md-10 leaves an extro block at the end (padding)--%>
             <blockquote class="alert alert-info" style="font-style:italic">
                 This page will illustrate some simple controls to fill out an online job application. The form will use basic 2 column bootstrap formatting with 
                 assistance from the NuGet package Bootwrap-FreeCode. The form will investigate the processing for a CheckBoxList.Data display will be to a simple string.
@@ -40,14 +40,13 @@
 
 
 
-                <asp:Label ID="Label5" runat="server" Text="Phone" AssociatedControlID="Jobs"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Jobs" AssociatedControlID="Jobs"></asp:Label>
                 <asp:CheckBoxList ID="Jobs" runat="server">
                     <asp:ListItem>Sales</asp:ListItem>
                     <asp:ListItem>Manufacturing</asp:ListItem>
                     <asp:ListItem>Accounting</asp:ListItem>
                     <asp:ListItem>Shipping/Receiving</asp:ListItem>
                 </asp:CheckBoxList>
-
 
             </fieldset>
         </div>

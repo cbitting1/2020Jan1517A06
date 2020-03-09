@@ -32,7 +32,7 @@ namespace WebApp.SamplePages
 
             bool found = false;
 
-            foreach(ListItem jobrow in Jobs.Items)
+            foreach(ListItem jobrow in Jobs.Items) //Jobs is the name of our CheckBoxList
             {
                 if(jobrow.Selected)
                 {

@@ -45,15 +45,13 @@
 
                 <asp:Label ID="Label6" runat="server" Text="ISBN" AssociatedControlID="MovieISBN"></asp:Label>
                 <asp:TextBox ID="MovieISBN" runat="server"></asp:TextBox>
-                
-                
+               
+            </fieldset>
+        </div>
                 <div class="col-md-10">
                          <asp:Button ID="Submit" runat="server" Text="Add to Library" CssClass="btn btn-success" OnClick="Submit_Click"/>
                          <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
                 </div>
-            </fieldset>
-        </div>
-
     <script src="../Scripts/bootwrap-freecode.js"></script>
 </div>
 </asp:Content>
