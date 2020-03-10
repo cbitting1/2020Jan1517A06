@@ -20,7 +20,7 @@ namespace WebApp.SamplePages
         protected void Submit_Click(object sender, EventArgs e)
         {
             //Re-execute the validation Controls on the server side.
-            if(Page.IsValid) //Wrap the if(Page.IsValid around the submit button since we want the validation when the user pressed the submit button.)
+            if(Page.IsValid) //Wrap the if(Page.IsValid around the submit button since we want the validation when the user prep0-[ssed the submit button.)
             {
             if(Terms.Checked) //makes sure that they have agreed to the terms and conditions (when the checkbox is checked) then we can store the information
             {                                                   //That's when we create an instance of the object 
