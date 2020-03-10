@@ -12,8 +12,7 @@
             </blockquote>
             <p>
                 Please fill out the following form to enter the contest. This contest is only available to residents in Western Canada.
-            </p>
-
+            </p>           
         </div>
     </div>
   
@@ -108,7 +107,7 @@
                     <asp:Button ID="Clear" runat="server" Text="Clear" CausesValidation="true" OnClick="Clear_Click"  />
                 </p>
                 <asp:Label ID="Message" runat="server" ></asp:Label><br />
-                <asp:GridView ID="EntryList" runat="server" CssClass="table table-striped" BorderStyle="None" GridLines="Horizontal"></asp:GridView>
+                <asp:GridView ID="EntryList" runat="server" CssClass="table table-striped" BorderStyle="None" GridLines="Horizontal "></asp:GridView>
             </div>
         </div>
     </div>

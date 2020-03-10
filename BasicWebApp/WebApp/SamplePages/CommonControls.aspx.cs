@@ -40,6 +40,9 @@ namespace WebApp.SamplePages
                 DataCollection.Add(new DDLData(3, "DMIT1508"));
                 DataCollection.Add(new DDLData(4, "DMIT2018"));
                 DataCollection.Add(new DDLData(2, "CPSC1517"));
+                //Wir brauchen hierfuer einen Constructor weil wenn wir eine instance von ner object createn dann ist die Zahl und der Name required 
+                //Wenn wir nix eingeben wuerden wuerde der leere constructor geurfen (nix in der Klammer)
+
 
                 //Sorting a List<T>
                 //(x,y) are placeholders for 2 records at any given time in the sort

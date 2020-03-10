@@ -23,5 +23,6 @@ namespace WebApp
 
         public string EmailAddress { get; set; }
 
+
     }
 }
