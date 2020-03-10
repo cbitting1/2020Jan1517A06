@@ -36,12 +36,9 @@
     <asp:RangeValidator ID="RangeStreetAddress2" runat="server" ErrorMessage="Number must be between 0 and 100" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="StreetAddress2" MinimumValue="0" MaximumValue="100" Type="Integer"></asp:RangeValidator>
 
     <%-- Samples of compare validation --%>
-
 <%--    <asp:CompareValidator ID="CompareCheckAnswer" runat="server" ErrorMessage="Skill Testing value is not a number" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="CheckAnswer" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
-<%--    <asp:CompareValidator ID="CompareCehckAnswer" runat="server" ErrorMessage="Skill Testing value is incorrect" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="CheckAnswer" Operator="Eqal" ValueToCompare="15" Type="Integer"></asp:CompareValidator>   Operator="GreaterThanEqual"--%>
+<%--    <asp:CompareValidator ID="CompareCehckAnswer" runat="server" ErrorMessage="Skill Testing value is incorrect" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="CheckAnswer" Operator="Equal" ValueToCompare="15" Type="Integer"></asp:CompareValidator>   Operator="GreaterThanEqual"--%>
 <%--    <asp:CompareValidator ID="CompareCehckAnswer" runat="server" ErrorMessage="Skill Testing value is not equal to Street Address 2" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="CheckAnswer" Operator="Equal" ControlToCompare="StreetAddress2" Type="Integer"></asp:CompareValidator>--%>
-
-
 
 
     <div class="row">
