@@ -62,6 +62,9 @@
             </div>
         </div>--%>
 
+
+
+        <%-- We have to add runat="server" because the menu runs on bootstrap and that way we make it run on the webpages --%>
       <div class="container">
       <div class="navbar navbar-inverse">
           <nav class="navbar navbar-expand-md navbar-light fixed-top">
