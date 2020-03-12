@@ -12,6 +12,8 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
+
+    <%--links added for font-awesome so it's available on every webpage--%>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="~/css/font-awesome.min.css" rel="stylesheet" />
