@@ -54,15 +54,16 @@ namespace WebApp.SamplePages
             {
                 if(movieratingrow.Selected)
                 {
-                    msg += movieratingrow.Text + " ";
+                    msg += "Movie Rating: " + movieratingrow.Text + " ";
                     found = true;
                 }
 
                 if(!found)
                 {
-                    msg += "You did not select a Movie Rating.";
+                    msg += "Movie Rating: You did not select a Movie Rating.";
                 }
             }
+
             //msg += "Media: " + MediaSelection.SelectedValue;
             if(MediaSelection.SelectedValue == "1")
             {
@@ -78,7 +79,7 @@ namespace WebApp.SamplePages
             }
             else
             {
-                msg += "You did not select a Media Rating. ";
+                msg += "Media: You did not select a Media Rating. ";
             }
             
             
