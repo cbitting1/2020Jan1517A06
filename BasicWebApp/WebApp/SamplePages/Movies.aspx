@@ -5,6 +5,19 @@
     <h1>Movie Library</h1>
 
 
+<asp:RequiredFieldValidator ID="RequiredTitle" runat="server" ErrorMessage="Title is required." Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="MovieTitle"></asp:RequiredFieldValidator>
+<asp:RequiredFieldValidator ID="RequiredYear" runat="server" ErrorMessage="Year is required." Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="YearMovie"></asp:RequiredFieldValidator>
+<asp:RangeValidator ID="RangeMovieYear" runat="server" ErrorMessage="Year must be between 1900 and greater" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="YearMovie" MinimumValue="1900" MaximumValue="3000" Type="Integer"></asp:RangeValidator>
+<asp:RequiredFieldValidator ID="RequiredMedia" runat="server" ErrorMessage="Media is required." Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="MediaSelection"></asp:RequiredFieldValidator>
+
+
+
+
+<div class="row">
+  <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-info" HeaderText="Data entry errors. Examine your data to resolve the following concerns."/>
+</div> 
+
+
 <div class="row">
         <div class="col-md-6">
             <fieldset class="form-horizontal">

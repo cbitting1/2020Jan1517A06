@@ -10,81 +10,80 @@ namespace WebApp.SamplePages
     public partial class Movies : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
+           
             MessageLabel.Text = "";
+            
+                if (!Page.IsPostBack)
+                {
+
+                    List<MoviesStarsDropDown> DataCollectionStars = new List<MoviesStarsDropDown>(); //DataCollection is the name of the property in the Class Page called "DDL Data
+                    DataCollectionStars.Add(new MoviesStarsDropDown(1, "1 Star")); // new DDLData --> ist ein Object createn
+                    DataCollectionStars.Add(new MoviesStarsDropDown(3, "2 Stars"));
+                    DataCollectionStars.Add(new MoviesStarsDropDown(4, "3 Stars"));
+                    DataCollectionStars.Add(new MoviesStarsDropDown(2, "4 Stars"));
+                    DataCollectionStars.Add(new MoviesStarsDropDown(5, "5 Stars"));
 
 
+                    DataCollectionStars.Sort((x, y) => x.displayField.CompareTo(y.displayField));
 
 
-            if (!Page.IsPostBack)
-            {
+                    StarList.DataSource = DataCollectionStars;
 
-                List<MoviesStarsDropDown> DataCollectionStars = new List<MoviesStarsDropDown>(); //DataCollection is the name of the property in the Class Page called "DDL Data
-                DataCollectionStars.Add(new MoviesStarsDropDown(1, "1 Star")); // new DDLData --> ist ein Object createn
-                DataCollectionStars.Add(new MoviesStarsDropDown(3, "2 Stars"));
-                DataCollectionStars.Add(new MoviesStarsDropDown(4, "3 Stars"));
-                DataCollectionStars.Add(new MoviesStarsDropDown(2, "4 Stars"));
-                DataCollectionStars.Add(new MoviesStarsDropDown(5, "5 Stars"));
+                    StarList.DataTextField = nameof(DDLData.displayField);
 
-
-                DataCollectionStars.Sort((x, y) => x.displayField.CompareTo(y.displayField));
-
-
-                StarList.DataSource = DataCollectionStars;
-
-                StarList.DataTextField = nameof(DDLData.displayField);
-
-                StarList.DataBind();
+                    StarList.DataBind();
             }
-
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            string msg = "";
-
-
-            msg += "Movie: " + MovieTitle.Text + ", "; 
-            msg += "Year: " + YearMovie.Text + ", ";
-            msg += "Stars: " + StarList.Text + ", ";
-            msg += "ISBN: " + MovieISBN.Text + ", ";
-            //msg += "Movie Rating: " + MovieRatings.SelectedValue + " ";
-            bool found = false;
-            foreach(ListItem movieratingrow in MovieRatings.Items)
+            if (Page.IsValid)
             {
-                if(movieratingrow.Selected)
+                string msg = "";
+
+
+                msg += "Movie: " + MovieTitle.Text + ", ";
+                msg += "Year: " + YearMovie.Text + ", ";
+                msg += "Stars: " + StarList.Text + ", ";
+                msg += "ISBN: " + MovieISBN.Text + ", ";
+                //msg += "Movie Rating: " + MovieRatings.SelectedValue + " ";
+                bool found = false;
+                foreach (ListItem movieratingrow in MovieRatings.Items)
                 {
-                    msg += "Movie Rating: " + movieratingrow.Text + " ";
-                    found = true;
+                    if (movieratingrow.Selected)
+                    {
+                        msg += "Movie Rating: " + movieratingrow.Text + " ";
+                        found = true;
+                    }
+
+
+                }
+                if (!found)
+                {
+                    msg += "Movie Rating: You did not select a Movie Rating. ";
+                }
+                if (MediaSelection.SelectedValue == "1")
+                {
+                    msg += "Media: " + MediaSelection.SelectedItem;
+                }
+                else if (MediaSelection.SelectedValue == "2")
+                {
+                    msg += "Media: " + MediaSelection.SelectedItem;
+                }
+                else if (MediaSelection.SelectedValue == "3")
+                {
+                    msg += "Media: " + MediaSelection.SelectedItem;
+                }
+                else
+                {
+                    msg += "Media: You did not select a Media Rating. ";
                 }
 
-                if(!found)
-                {
-                    msg += "Movie Rating: You did not select a Movie Rating.";
-                }
-            }
 
-            //msg += "Media: " + MediaSelection.SelectedValue;
-            if(MediaSelection.SelectedValue == "1")
-            {
-                msg += "Media: " + MediaSelection.SelectedItem;
-            }
-            else if(MediaSelection.SelectedValue == "2")
-            {
-                msg += "Media: " + MediaSelection.SelectedItem;
-            }
-            else if (MediaSelection.SelectedValue == "3")
-            {
-                msg += "Media: " + MediaSelection.SelectedItem;
-            }
-            else
-            {
-                msg += "Media: You did not select a Media Rating. ";
-            }
-            
-            
 
-            MessageLabel.Text = msg;
+                MessageLabel.Text = msg;
+            }
         }
     }
 }
