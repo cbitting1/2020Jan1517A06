@@ -22,7 +22,7 @@ namespace NorthwindSystem.Entities
 
 
         //[Key] single attribute PK, identity PK
-        //[Key, Column(Order = n)] compound PKs required in fron of each propery, n represents the physical order as found on SQL table
+        //[Key, Column(Order = n)] compound PKs required in front of each propery, n represents the physical order as found on SQL table
         //          .xxxx --> Identity: PK on SQL is an Identity PK
         //          default
         //          --> None: PK is NOT Idenity, user entered
