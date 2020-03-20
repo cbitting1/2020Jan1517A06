@@ -37,8 +37,7 @@
             <asp:Label ID="UnitsInStock" runat="server" ></asp:Label><br/>
             <asp:Label ID="UnitsOnOrder" runat="server" ></asp:Label><br/>
             <asp:Label ID="ReorderLevel" runat="server" ></asp:Label><br/>
-            <asp:CheckBox ID="Discontinued" runat="server"
-                Text="  (checked if discontinued)"></asp:CheckBox>
+            <asp:CheckBox ID="Discontinued" runat="server" Text="  (checked if discontinued)"></asp:CheckBox>
         </div>
     </div>
 </asp:Content>
