@@ -1,5 +1,4 @@
-﻿  
-<%@ Page Title="Product Query List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductQuery.aspx.cs" Inherits="WebApp.SamplePages.ProductQuery" %>
+﻿<%@ Page Title="Product Query List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductQuery.aspx.cs" Inherits="WebApp.SamplePages.ProductQuery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <h1>Product Query</h1>
     <div class="row">

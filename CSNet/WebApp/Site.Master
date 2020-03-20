@@ -6,19 +6,16 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-
-    <%--links added for font-awesome so it's available on every webpage--%>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="~/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/css/font-awesome.css" rel="stylesheet" />
-
 </head>
 <body>
     <form runat="server">
@@ -41,8 +38,9 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-    <%-- Given Menu default
-        <div class="navbar navbar-inverse navbar-fixed-top">
+   
+       <%-- given menu default 
+           <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -61,11 +59,8 @@
                 </div>
             </div>
         </div>--%>
-
-
-
-        <%-- We have to add runat="server" because the menu runs on bootstrap and that way we make it run on the webpages --%>
-         <div class="container">
+        
+     <div class="container">
       <div class="navbar navbar-inverse">
           <nav class="navbar navbar-expand-md navbar-light fixed-top">
               <a class="navbar-brand" href="Default.aspx" runat="server">
@@ -119,13 +114,10 @@
         </div>
 
 
-
-
-
-
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            <br />
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>

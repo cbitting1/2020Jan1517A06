@@ -35,7 +35,7 @@ namespace NorthwindSystem.Entities
         public string CompanyName { get; set; }
 
         [StringLength(30, ErrorMessage = "Contact name is limited to 30 characters")]
-        public string ContactName
+        public string ContactName 
         {
             get { return _ContactName; }
             set { _ContactName = string.IsNullOrEmpty(value) ? null : value; }

@@ -14,7 +14,7 @@ namespace NorthwindSystem.Entities
     [Table("Territories")]
     public class Territory
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.None)]
         [StringLength(20, ErrorMessage = "Territory ID is limited to 20 characters")]
         public string TerritoryID { get; set; }
 

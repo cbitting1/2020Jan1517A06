@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp.SamplePages
-{
-
-
-    public partial class ProductQuery
-    {
-
+namespace WebApp.SamplePages {
+    
+    
+    public partial class ProductQuery {
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// ProductList control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ProductList;
-
+        
         /// <summary>
         /// Fetch control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton Fetch;
-
+        
         /// <summary>
         /// MessageLabel control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageLabel;
-
+        
         /// <summary>
         /// label2 control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label2;
-
+        
         /// <summary>
         /// label3 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label3;
-
+        
         /// <summary>
         /// label4 control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label4;
-
+        
         /// <summary>
         /// label6 control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label6;
-
+        
         /// <summary>
         /// label8 control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label8;
-
+        
         /// <summary>
         /// label10 control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label10;
-
+        
         /// <summary>
         /// label12 control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label12;
-
+        
         /// <summary>
         /// label14 control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label14;
-
+        
         /// <summary>
         /// label16 control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label16;
-
+        
         /// <summary>
         /// label18 control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label18;
-
+        
         /// <summary>
         /// ProductID control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ProductID;
-
+        
         /// <summary>
         /// ProductName control.
         /// </summary>
@@ -157,7 +155,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ProductName;
-
+        
         /// <summary>
         /// SupplierID control.
         /// </summary>
@@ -166,7 +164,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label SupplierID;
-
+        
         /// <summary>
         /// CategoryID control.
         /// </summary>
@@ -175,7 +173,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label CategoryID;
-
+        
         /// <summary>
         /// QuantityPerUnit control.
         /// </summary>
@@ -184,7 +182,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label QuantityPerUnit;
-
+        
         /// <summary>
         /// UnitPrice control.
         /// </summary>
@@ -193,7 +191,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label UnitPrice;
-
+        
         /// <summary>
         /// UnitsInStock control.
         /// </summary>
@@ -202,7 +200,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label UnitsInStock;
-
+        
         /// <summary>
         /// UnitsOnOrder control.
         /// </summary>
@@ -211,7 +209,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label UnitsOnOrder;
-
+        
         /// <summary>
         /// ReorderLevel control.
         /// </summary>
@@ -220,7 +218,7 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ReorderLevel;
-
+        
         /// <summary>
         /// Discontinued control.
         /// </summary>

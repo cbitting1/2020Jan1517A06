@@ -15,13 +15,17 @@ namespace NorthwindSystem.BLL
     {
         public List<Region> Regions_List()
         {
-            //ensure the sql connection is closed at the end of the query process
+            //ensure the sql connection is closed at the end
+            //   of the query process
             using (var context = new NorthwindSystemContext())
             {
-                //use an extension method of EntityFramework to get all of the data from the sql table Region
-                //use the property DbSet that maps the Region sql table to the application
+                //use an extension method of EntityFramework to get
+                //    all of the data from the sql table Region
+                //use the property DbSet that maps the Region sql table to 
+                //    the application
                 //the dbset T type is Region which describes a single record
-                //the actual collection type that is returned from EntityFramework is either IEnumerable or IQuerable
+                //the actual collection type that is returned from
+                //    EntityFramework is either IEnumerable or IQuerable
                 //Change the collection type to a List<T> using .ToList()
                 return context.Regions.ToList();
             }
@@ -31,7 +35,8 @@ namespace NorthwindSystem.BLL
         {
             using (var context = new NorthwindSystemContext())
             {
-                //the .Find() method does a primary key lookup of the sql table
+                //the .Find() method does a primary key lookup of the
+                //    sql table
                 return context.Regions.Find(regionid);
             }
         }

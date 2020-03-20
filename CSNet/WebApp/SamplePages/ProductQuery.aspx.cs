@@ -28,14 +28,20 @@ namespace WebApp.SamplePages
 
         protected void BindProductList()
         {
-            //any time you leave the web page to access another project, place your code within a try catch
+            //any time you leave the web page to 
+            //   access another project, place your
+            //   code within a try catch
             try
             {
-                //create an instance of the interface class that exists in your BLL
-                //you will need to have declared the namespace of the class at the top of this file
+                //create an instance of the interface class
+                //   that exists in your BLL
+                //you will need to have declared the namespace
+                //   of the class at the top of this file
                 ProductController sysmger = new ProductController();
-                //call the method in the controller that will return the data that you wish
-                //you will need to have declared the namespace of the entity class at the top of this file
+                //call the method in the controller that will
+                //   return the data that you wish
+                //you will need to have declared the namespace
+                //   of the entity class at the top of this file
                 List<Product> info = sysmger.Products_List();
 
                 //sort the returned data
@@ -52,9 +58,13 @@ namespace WebApp.SamplePages
             }
             catch (Exception ex)
             {
-                //Sometimes, depending on the exception you will simply get a message pointing you to the Inner Exception which will hold the true error
-                //Pass the exception to the GetInnerException() method we have supplied.
-                //This GetInnerException() returns the most inner error message
+                //Sometimes, depending on the exception you will
+                //   simply get a message pointing you to the
+                //   Inner Exception which will hold the true error
+                //Pass the exception to the GetInnerException() method
+                //   we have supplied.
+                //This GetInnerException() returns the most inner
+                //   error message
                 MessageLabel.Text = GetInnerException(ex).Message;
             }
         }
@@ -94,7 +104,7 @@ namespace WebApp.SamplePages
                         //move your data from info to the cooresponding controls on the web page.
                     }
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageLabel.Text = GetInnerException(ex).Message;
                 }

@@ -69,7 +69,7 @@ namespace WebApp.SamplePages
                         Description.Text = info.RegionDescription;
                     }
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageLabel.Text = GetInnerException(ex).Message;
                 }
