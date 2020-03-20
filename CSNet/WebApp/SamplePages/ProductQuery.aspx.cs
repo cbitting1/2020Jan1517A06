@@ -101,6 +101,7 @@ namespace WebApp.SamplePages
                     }
                     else
                     {
+                        //move your data from info to the cooresponding controls on the web page.
                         ProductID.Text = info.ProductID.ToString();
                         ProductName.Text = info.ProductName;
                         SupplierID.Text = info.SupplierID.ToString();
@@ -110,8 +111,7 @@ namespace WebApp.SamplePages
                         UnitsInStock.Text = info.UnitsInStock.ToString();
                         UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
                         ReorderLevel.Text = info.ReorderLevel.ToString();
-                        //Discontinued
-                        //move your data from info to the cooresponding controls on the web page.
+                        //Discontinued = ;
                     }
                 }
                 catch(Exception ex)
