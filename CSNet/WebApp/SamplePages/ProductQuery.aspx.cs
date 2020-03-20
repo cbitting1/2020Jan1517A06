@@ -101,6 +101,16 @@ namespace WebApp.SamplePages
                     }
                     else
                     {
+                        ProductID.Text = info.ProductID.ToString();
+                        ProductName.Text = info.ProductName;
+                        SupplierID.Text = info.SupplierID.ToString();
+                        CategoryID.Text = info.CategoryID.ToString();
+                        QuantityPerUnit.Text = info.QuantityPerUnit;
+                        UnitPrice.Text = info.UnitPrice.ToString(); ;
+                        UnitsInStock.Text = info.UnitsInStock.ToString();
+                        UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
+                        ReorderLevel.Text = info.ReorderLevel.ToString();
+                        //Discontinued
                         //move your data from info to the cooresponding controls on the web page.
                     }
                 }
