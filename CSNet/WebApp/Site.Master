@@ -65,35 +65,59 @@
 
 
         <%-- We have to add runat="server" because the menu runs on bootstrap and that way we make it run on the webpages --%>
-      <div class="container">
+         <div class="container">
       <div class="navbar navbar-inverse">
           <nav class="navbar navbar-expand-md navbar-light fixed-top">
-              <a class="navbar-brand" href="Default.aspx" runat="server"><strong>Bootstrap 4+</strong></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuName" aria-controls="navbarMenuName" aria-expanded="false" aria-label="Toggle Navigation">
+              <a class="navbar-brand" href="Default.aspx" runat="server">
+                        <strong>Bootstrap 4+</strong>
+              </a>
+              <button class="navbar-toggler" type="button"
+                        data-toggle="collapse" data-target="#navbarMenuName"
+                        aria-controls="navbarMenuName" aria-expanded="false"
+                        aria-label="Toggle Navigation">
                <span class="navbar-toggler-icon"></span>
-              </button>
+               </button>
                <div class="collapse navbar-collapse" id="navbarMenuName">
                   <ul class="navbar-nav">
                       <li class="nav-item">
-                          <a class="nav-link" href="~/Default.aspx" style="color:black" runat="server">Home</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="navbarSubMenu" data-toggle="dropdown" runat="server" style="color:black" aria-haspopup="true" aria-expanded="false">Samples</a>
+                          <a class="nav-link" href="~/Default.aspx"
+                                    style="color:black" runat="server">Home</a>
+                       </li>
+                       <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#"
+                                    id="navbarSubMenu" data-toggle="dropdown" 
+                                    runat="server" style="color:black"
+                                    aria-haspopup="true" aria-expanded="false"> 
+                                Samples</a>
                             <div class="dropdown-menu" aria-labelledby="navbarSubMenu">
-                                <a class="dropdown-item" href="~/SamplePages/TestPage.aspx" style="color:black" runat="server">TextPage</a>
+                                <a class="dropdown-item"
+                                        href="~/SamplePages/TestPage.aspx"
+                                        style="color:black" runat="server">
+                                   TestPage</a>
+                                <a class="dropdown-item"
+                                        href="~/SamplePages/RegionQuery.aspx"
+                                        style="color:black" runat="server">
+                                   Simply Query : String</a>
+                                <a class="dropdown-item"
+                                        href="~/SamplePages/ProductQuery.aspx"
+                                        style="color:black" runat="server">
+                                   Simply Query : List</a>
                             </div>
-                      </li>
-                      <li class="nav-item">
-                             <a class="nav-link" href="~/Contact.aspx" runat="server" style="color:black">Contact</a>
-                      </li>
-                          <li class="nav-item">
-                             <a class="nav-link" href="~/About.aspx" runat="server" style="color:black">About</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="~/Contact.aspx" runat="server"
+                                    style="color:black">Contact</a>
                           </li>
-                  </ul>
+                          <li class="nav-item">
+                             <a class="nav-link" href="~/About.aspx" runat="server"
+                                    style="color:black">About</a>
+                           </li>
+                        </ul>
                     </div>
                 </nav> 
             </div>
         </div>
+
 
 
 

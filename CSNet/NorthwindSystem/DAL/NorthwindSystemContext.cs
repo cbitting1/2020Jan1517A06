@@ -30,6 +30,11 @@ namespace NorthwindSystem.DAL
         public DbSet<Product> Products { get; set; } //one for each Entity
         //<Product> is the name of the Entitiy in the Entities folder
         //Products in plural because it's for all records not only for one record
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<Territory> Territories { get; set; }
+
 
     }
 }
