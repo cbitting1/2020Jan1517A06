@@ -18,7 +18,8 @@ namespace WebApp.SamplePages
         {
             MessageLabel.Text = "";
 
-            //On the first presentation of this page, load the dropdownlist with Region data
+            //on the first presentation of this page, load the 
+            //   dropdownlist with Region data
             if (!Page.IsPostBack)
             {
                 BindProductList();
@@ -30,23 +31,23 @@ namespace WebApp.SamplePages
             //any time you leave the web page to access another project, place your code within a try catch
             try
             {
-                //Create an instance of the interface class that exists in your BLL
-                //You will need to have declared the namespace of the class at the top of this file
+                //create an instance of the interface class that exists in your BLL
+                //you will need to have declared the namespace of the class at the top of this file
                 ProductController sysmger = new ProductController();
-                //Call the method in the controller that will return the data that you wish
-                //You will need to have declared the namespace of the entity class at the top of this file
+                //call the method in the controller that will return the data that you wish
+                //you will need to have declared the namespace of the entity class at the top of this file
                 List<Product> info = sysmger.Products_List();
 
-                //Sort the returned data
+                //sort the returned data
                 info.Sort((x, y) => x.ProductName.CompareTo(y.ProductName));
 
-                //Load the dropdownlist
+                //load the dropdownlist
                 ProductList.DataSource = info;
                 ProductList.DataTextField = nameof(Product.ProductName);
                 ProductList.DataValueField = nameof(Product.ProductID);
                 ProductList.DataBind();
 
-                //Add a prompt line to the list
+                //add a prompt line to the list
                 ProductList.Items.Insert(0, new ListItem("select..", "0"));
             }
             catch (Exception ex)
@@ -57,10 +58,10 @@ namespace WebApp.SamplePages
                 MessageLabel.Text = GetInnerException(ex).Message;
             }
         }
-        //Use this method to discover the inner most error message.
+        //use this method to discover the inner most error message.
         protected Exception GetInnerException(Exception ex)
         {
-            //Drill down to the inner most exception
+            //drill down to the inner most exception
             while (ex.InnerException != null)
             {
                 ex = ex.InnerException;
@@ -70,9 +71,9 @@ namespace WebApp.SamplePages
 
         protected void Fetch_Click(object sender, EventArgs e)
         {
-            //Test for data presents is against the dropdownlist
-            //Test for the .SelectedIndex
-            //If the index value is 0, then I am on the prompt line
+            //test for data presents is against the dropdownlist
+            //test for the .SelectedIndex
+            //if the index value is 0, then I am on the prompt line
             if (ProductList.SelectedIndex == 0)
             {
                 MessageLabel.Text = "Select a product to view.";
@@ -90,7 +91,7 @@ namespace WebApp.SamplePages
                     }
                     else
                     {
-                        //Move your data from info to the cooresponding controls on the web page.
+                        //move your data from info to the cooresponding controls on the web page.
                     }
                 }
                 catch (Exception ex)

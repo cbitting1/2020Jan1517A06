@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Product Query List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductQuery.aspx.cs" Inherits="WebApp.SamplePages.ProductQuery" %>
+﻿  
+<%@ Page Title="Product Query List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductQuery.aspx.cs" Inherits="WebApp.SamplePages.ProductQuery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <h1>Product Query</h1>
     <div class="row">
@@ -37,7 +38,8 @@
             <asp:Label ID="UnitsInStock" runat="server" ></asp:Label><br/>
             <asp:Label ID="UnitsOnOrder" runat="server" ></asp:Label><br/>
             <asp:Label ID="ReorderLevel" runat="server" ></asp:Label><br/>
-            <asp:CheckBox ID="Discontinued" runat="server" Text="  (checked if discontinued)"></asp:CheckBox>
+            <asp:CheckBox ID="Discontinued" runat="server"
+                Text="  (checked if discontinued)"></asp:CheckBox>
         </div>
     </div>
 </asp:Content>
