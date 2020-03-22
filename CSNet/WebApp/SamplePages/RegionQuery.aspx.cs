@@ -38,7 +38,7 @@ namespace WebApp.SamplePages
             {
                 MessageLabel.Text = "Supply a region id before searching";
             }
-            else if (!int.TryParse(RegionArg.Text, out regionid))
+            else if (!int.TryParse(RegionArg.Text, out regionid)) //RegionArg is the name of the Textbox where the user enters the number
             {
                 MessageLabel.Text = "Region id must be a number";
             }
@@ -52,7 +52,7 @@ namespace WebApp.SamplePages
                     //a) connect to your controller
                     RegionController sysmgr = new RegionController();
                     //b) call the method in the system controller class
-                    //   and capture the returning data
+                    //   and capture the returning data 
                     Region info = sysmgr.Regions_FindByID(int.Parse(RegionArg.Text));
                     //c) check results and process accordingly
                     if (info == null)

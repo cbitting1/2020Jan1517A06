@@ -18,30 +18,23 @@ namespace WebApp.SamplePages
         {
             MessageLabel.Text = "";
 
-            //on the first presentation of this page, load the 
-            //   dropdownlist with Region data
-            if (!Page.IsPostBack)
+            //on the first presentation of this page, load the dropdownlist with Region data
+            if (!Page.IsPostBack)  // has to be there 
             {
                 BindProductList();
             }
         }
 
-        protected void BindProductList()
+        protected void BindProductList() //if info is null we do not display it on the dropdown list
         {
-            //any time you leave the web page to 
-            //   access another project, place your
-            //   code within a try catch
+            //any time you leave the web page to access another project, place your code within a try catch
             try
             {
-                //create an instance of the interface class
-                //   that exists in your BLL
-                //you will need to have declared the namespace
-                //   of the class at the top of this file
+                //create an instance of the interface class that exists in your BLL
+                //you will need to have declared the namespace of the class at the top of this file
                 ProductController sysmger = new ProductController();
-                //call the method in the controller that will
-                //   return the data that you wish
-                //you will need to have declared the namespace
-                //   of the entity class at the top of this file
+                //call the method in the controller that will return the data that you wish
+                //you will need to have declared the namespace of the entity class at the top of this file
                 List<Product> info = sysmger.Products_List();
 
                 //sort the returned data
@@ -58,13 +51,9 @@ namespace WebApp.SamplePages
             }
             catch (Exception ex)
             {
-                //Sometimes, depending on the exception you will
-                //   simply get a message pointing you to the
-                //   Inner Exception which will hold the true error
-                //Pass the exception to the GetInnerException() method
-                //   we have supplied.
-                //This GetInnerException() returns the most inner
-                //   error message
+                //Sometimes, depending on the exception you will simply get a message pointing you to the Inner Exception which will hold the true error
+                //Pass the exception to the GetInnerException() method we have supplied.
+                //This GetInnerException() returns the most inner error message
                 MessageLabel.Text = GetInnerException(ex).Message;
             }
         }
@@ -92,12 +81,12 @@ namespace WebApp.SamplePages
             {
                 try
                 {
-                    ProductController sysmgr = new ProductController();
-                    Product info = sysmgr.Products_FindByID(int.Parse(ProductList.SelectedValue));
+                    ProductController sysmgr = new ProductController(); //connect to our controller (in this case the Product Controller)
+                    Product info = sysmgr.Products_FindByID(int.Parse(ProductList.SelectedValue)); //Take the value because we sorted the name!!! --> value and index might do not match up
                     if (info == null)
                     {
                         MessageLabel.Text = "Selected product does not exists on the file";
-                        BindProductList();
+                        BindProductList(); //will refresh the dropdown list
                     }
                     else
                     {
@@ -111,7 +100,7 @@ namespace WebApp.SamplePages
                         UnitsInStock.Text = info.UnitsInStock.ToString();
                         UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
                         ReorderLevel.Text = info.ReorderLevel.ToString();
-                        //Discontinued = ;
+                        //Discontinued = info.Discontinued.ToString();
                     }
                 }
                 catch(Exception ex)
