@@ -69,8 +69,7 @@
                          IncludeStyleBlock="false" EnableTheming="false"
                          EnableViewState="false">
                     </asp:Menu>
-                    <asp:SiteMapDataSource ID="BasicAspNetMenuDS" runat="server" 
-                        ShowStartingNode="false"/> <%--web.Sitemap is on the right on the very bottom (that's where the drop down is referencing to/from)--%>
+                    <asp:SiteMapDataSource ID="BasicAspNetMenuDS" runat="server" ShowStartingNode="false"/> <%--web.Sitemap is on the right on the very bottom (that's where the drop down is referencing to/from)--%>
                 </div>
             </div>
         </div>

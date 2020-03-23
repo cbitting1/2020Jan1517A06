@@ -17,10 +17,10 @@
       <siteMapNode url="~/SamplePages/ContestEntry.aspx" title="Validation and GridView" description="sub menu item" />
     </siteMapNode>
     
+    
+    <!--Ausserhalb vom Menue DropDown-->
     <siteMapNode url="~/Contact.aspx" title="Contact"  description="given" />
     <siteMapNode url="~/About.aspx" title="About"  description="given" />
-
-
 
     <siteMapNode url="~/SamplePages/Movies.aspx" title="Movie Library (Test)"  description="Practice Page" />
 
