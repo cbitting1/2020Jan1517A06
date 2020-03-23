@@ -14,10 +14,7 @@ namespace WebApp.SamplePages
             MessageLabel.Text = "";
 
         }
-        protected void Search_Click(object sender, EventArgs e)
-        {
-            MessageLabel.Text = "Your pressed this button.";
-        }
+       
 
         protected void Submit_Click(object sender, EventArgs e)
         {
@@ -34,8 +31,6 @@ namespace WebApp.SamplePages
 
                 MessageLabel.Text = msg;
             }  
-        }
-
-    
+        }    
     }
 }
