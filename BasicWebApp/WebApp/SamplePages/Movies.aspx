@@ -61,9 +61,9 @@
                
             </fieldset>
         </div>
-                <div class="col-md-10">
-                         <asp:Button ID="Submit" runat="server" Text="Add to Library" CssClass="btn btn-success" OnClick="Submit_Click"/>
-                         <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
+        <div class="col-md-10">
+               <asp:Button ID="Submit" runat="server" Text="Add to Library" CssClass="btn btn-success" OnClick="Submit_Click"/>
+               <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
         </div>
     <script src="../Scripts/bootwrap-freecode.js"></script>
 </div>
