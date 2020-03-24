@@ -84,7 +84,7 @@ namespace WebApp.SamplePages
 
             int numberchoice = 0;
 
-            if (string.IsNullOrEmpty(TextBoxNumberChoice.Text))
+            if (string.IsNullOrEmpty(TextBoxNumberChoice.Text)) //TextBoxNumber is the name where the user enters a number
             {
                 MessageLabel.Text = "Enter a number between 1 and 4";
             }

@@ -41,7 +41,7 @@ namespace WebApp.SamplePages
                 theEntry.EmailAddress = EmailAddress.Text;
 
                 //Add the new instance to the collection (entries is the name of the list we created up on top of page) theEntry is the name of the instance that we created
-                entries.Add(theEntry);
+                entries.Add(theEntry); //theEntry is the name of the instance of the class we created
 
 
                 //Display the collection (List)
