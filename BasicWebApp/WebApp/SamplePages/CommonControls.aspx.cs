@@ -107,8 +107,8 @@ namespace WebApp.SamplePages
                                                                                //The Index does not neccessarly match up with the Value
                                                                                //The above RadioButtonListChoice.SelectedValue = numberchoice.ToString(); will make sure that the checkbox will be selected after the
                                                                                //user has entered a number and pressed the submit button
-
-
+                //numberchoice.ToString will turn on the RadioButtonListChoice (the number that the user entered)
+                //numbers 1-4 are also the "Value" numbers in the RadioButtons
 
                 //Set the checkbox
                 if (numberchoice == 2 || numberchoice == 4)
@@ -125,7 +125,7 @@ namespace WebApp.SamplePages
                 //.SelectedValue will match the control item value to the argument
                 //.SelectedIndex selects the control item based on it's physical index position
                 //The best policy is to use .SelectedValue 
-                CollectionList.SelectedValue = numberchoice.ToString();
+                CollectionList.SelectedValue = numberchoice.ToString(); //Will change the dropdownlist to what the user selected with the number he entered
                 //NOTE: Every ListControl that we have is gonna have the same type of behaviours (.SelectedValue/.SelectedIndex)!!!!!!!!!!
 
                 //Accessing data from your dropdownlist
@@ -210,9 +210,7 @@ namespace WebApp.SamplePages
                     CheckBoxChoice.Checked = false;
                 }
 
-                DisplayReadOnly.Text = CollectionList.SelectedItem.Text +
-                                    " at index " + CollectionList.SelectedIndex +
-                                    " having a value of " + CollectionList.SelectedValue;
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text + " at index " + CollectionList.SelectedIndex + " having a value of " + CollectionList.SelectedValue;
             }
         }
     }

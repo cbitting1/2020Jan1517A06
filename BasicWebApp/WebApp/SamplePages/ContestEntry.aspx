@@ -71,9 +71,9 @@
                 <asp:Label ID="Label9" runat="server" Text="Province" AssociatedControlID="Province"></asp:Label>
                 <asp:DropDownList ID="Province" runat="server" Width="75px">
                     <asp:ListItem Value="AB" Text="AB"></asp:ListItem>
-                     <asp:ListItem Value="BC" Text="BC"></asp:ListItem>
-                     <asp:ListItem Value="MN" Text="MN"></asp:ListItem>
-                     <asp:ListItem Value="SK" Text="SK"></asp:ListItem>
+                    <asp:ListItem Value="BC" Text="BC"></asp:ListItem>
+                    <asp:ListItem Value="MN" Text="MN"></asp:ListItem>
+                    <asp:ListItem Value="SK" Text="SK"></asp:ListItem>
                 </asp:DropDownList>
                   
                  <asp:Label ID="Label10" runat="server" Text="Postal Code" AssociatedControlID="PostalCode"></asp:Label>
@@ -100,8 +100,8 @@
         <div class="col-md-6">   
             <div class="col-md-offset-2">
                 <p>
-                    <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />&nbsp;&nbsp;
-                    <asp:Button ID="Clear" runat="server" Text="Clear" CausesValidation="true" OnClick="Clear_Click"  />
+                   <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />&nbsp;&nbsp;
+                   <asp:Button ID="Clear" runat="server" Text="Clear" CausesValidation="true" OnClick="Clear_Click"  />
                 </p>
                 <asp:Label ID="Message" runat="server" ></asp:Label><br />
                 <asp:GridView ID="EntryList" runat="server" CssClass="table table-striped" BorderStyle="None" GridLines="Horizontal "></asp:GridView>

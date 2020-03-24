@@ -23,7 +23,7 @@ namespace WebApp.SamplePages
                     DataCollectionStars.Add(new MoviesStarsDropDown(3, "2 Stars"));
                     DataCollectionStars.Add(new MoviesStarsDropDown(4, "3 Stars"));
                     DataCollectionStars.Add(new MoviesStarsDropDown(2, "4 Stars"));
-                    DataCollectionStars.Add(new MoviesStarsDropDown(500, "5 Stars"));
+                    DataCollectionStars.Add(new MoviesStarsDropDown(5, "5 Stars"));
 
                     
                     //Namen werden in der Liste gesorted
