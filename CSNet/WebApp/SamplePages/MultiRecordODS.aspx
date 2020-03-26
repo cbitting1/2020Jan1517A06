@@ -17,8 +17,7 @@
     <div class="row">
         <asp:Literal ID="Literal1" runat="server" Text="Categories:"></asp:Literal>
         &nbsp;&nbsp;
-        <asp:DropDownList ID="CategoryList" runat="server" DataSourceID="CategoryListODS" DataTextField="CategoryName" DataValueField="CategoryID">
-            
+        <asp:DropDownList ID="CategoryList" runat="server" DataSourceID="CategoryListODS" DataTextField="CategoryName" DataValueField="CategoryID">           
         </asp:DropDownList>
         &nbsp;&nbsp;
         <asp:LinkButton ID="FetchCategoryProducts" runat="server">Fetch</asp:LinkButton>
@@ -59,7 +58,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Disc.">
                     <ItemTemplate>
-                        <asp:CheckBox ID="Discontinued" runat="server" Checked='<%# Eval("Discontinued") %>' Enabled="false"/> //For boolean it is a checkbox; Enable="false" it makes is read only  
+                        <asp:CheckBox ID="Discontinued" runat="server" Checked='<%# Eval("Discontinued") %>' Enabled="false"/> <%--For boolean it is a checkbox; Enable="false" it makes is read only  --%>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -73,4 +72,5 @@
 
     <asp:ObjectDataSource ID="CategoryListODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Categories_List" TypeName="NorthwindSystem.BLL.CategoryController">
     </asp:ObjectDataSource> <%--Name of the DropDownList plus the ODS at the end--%>
+
 </asp:Content>

@@ -21,18 +21,20 @@ namespace WebApp.SamplePages
             //on the first presentation of this page, load the dropdownlist with Region data
             if (!Page.IsPostBack)  // has to be there 
             {
-                BindProductList();
+                BindProductList(); //is there to load the dropdown list (the actual code for the dropdown list ist to be found in the BindProductList method right underneath)
             }
         }
 
-        protected void BindProductList() //if info is null we do not display it on the dropdown list
+        protected void BindProductList() //if info (the name of our list) is null we do not display it on the dropdown list
         {
             //any time you leave the web page to access another project, place your code within a try catch
             try
             {
                 //create an instance of the interface class that exists in your BLL
                 //you will need to have declared the namespace of the class at the top of this file
+                //(Connect to the Controller Class)
                 ProductController sysmger = new ProductController();
+
                 //call the method in the controller that will return the data that you wish
                 //you will need to have declared the namespace of the entity class at the top of this file
                 List<Product> info = sysmger.Products_List();
@@ -41,7 +43,7 @@ namespace WebApp.SamplePages
                 info.Sort((x, y) => x.ProductName.CompareTo(y.ProductName));
 
                 //load the dropdownlist
-                ProductList.DataSource = info;
+                ProductList.DataSource = info; //info is the name of the list ProductList is the name of the Dropdown
                 ProductList.DataTextField = nameof(Product.ProductName);
                 ProductList.DataValueField = nameof(Product.ProductID);
                 ProductList.DataBind();
@@ -57,6 +59,10 @@ namespace WebApp.SamplePages
                 MessageLabel.Text = GetInnerException(ex).Message;
             }
         }
+
+
+
+
         //use this method to discover the inner most error message.
         protected Exception GetInnerException(Exception ex)
         {
@@ -68,21 +74,30 @@ namespace WebApp.SamplePages
             return ex;
         }
 
+
+
+
+
         protected void Fetch_Click(object sender, EventArgs e)
         {
             //test for data presents is against the dropdownlist
             //test for the .SelectedIndex
             //if the index value is 0, then I am on the prompt line
-            if (ProductList.SelectedIndex == 0)
+            if (ProductList.SelectedIndex == 0) //To find the physical position (for the prompt line)
             {
                 MessageLabel.Text = "Select a product to view.";
             }
-            else
+            else  
             {
                 try
                 {
-                    ProductController sysmgr = new ProductController(); //connect to our controller (in this case the Product Controller)
+                    //connect to our controller (in this case the ProductController)
+                    ProductController sysmgr = new ProductController(); //create a new instance of that class calles sysmgr
+
+
                     Product info = sysmgr.Products_FindByID(int.Parse(ProductList.SelectedValue)); //Take the value because we sorted the name!!! --> value and index might do not match up
+                                                                                                   //Product is the class in the ProductController class
+
                     if (info == null)
                     {
                         MessageLabel.Text = "Selected product does not exists on the file";
@@ -100,7 +115,17 @@ namespace WebApp.SamplePages
                         UnitsInStock.Text = info.UnitsInStock.ToString();
                         UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
                         ReorderLevel.Text = info.ReorderLevel.ToString();
-                        //Discontinued = info.Discontinued.ToString();
+
+                        //Checkbox
+                        if(info.Discontinued == false)
+                        {
+                            Discontinued.Checked = false;
+                        }
+                        else
+                        {
+                            Discontinued.Checked = true;
+
+                        }
                     }
                 }
                 catch(Exception ex)

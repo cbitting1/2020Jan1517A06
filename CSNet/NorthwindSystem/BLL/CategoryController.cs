@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 #region Additional Namespaces
 using NorthwindSystem.DAL;
 using NorthwindSystem.Entities;
-using System.ComponentModel; //used by ODS wizard exposure 
+using System.ComponentModel; //used by ODS (Object Data Source) wizard exposure 
 #endregion
 
 

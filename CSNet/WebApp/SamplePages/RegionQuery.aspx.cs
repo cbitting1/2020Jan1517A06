@@ -44,11 +44,12 @@ namespace WebApp.SamplePages
             }
             else
             {
-                //your web application will be calling another project
+                //your web application will be calling another project (in the NorthwindSystem Project it's calling another class )
                 //you are to wrap this processing up in a Try/Catch
                 try
                 {
                     //standard lookup
+                     
                     //a) connect to your controller
                     RegionController sysmgr = new RegionController();
                     //b) call the method in the system controller class
@@ -65,7 +66,7 @@ namespace WebApp.SamplePages
                     else
                     {
                         //found
-                        RegionID.Text = info.RegionID.ToString();
+                        RegionID.Text = info.RegionID.ToString(); //info is the name of the instance we created in step A)
                         Description.Text = info.RegionDescription;
                     }
                 }
