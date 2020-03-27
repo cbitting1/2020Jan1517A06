@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,9 +30,8 @@ namespace WebApp.SamplePages
         protected void ProductList_SelectedIndexChanged(object sender, EventArgs e)
         {
             string msg = "";
-            //to access the gridview row, you need to have the .SelectIndex
-            //i am creating a variable which will point to the selected row
-            //    this variable is being used so I can reduce my typing
+            //To access the gridview row, you need to have the .SelectIndex
+            //I am creating a variable which will point to the selected row this variable is being used so I can reduce my typing
             GridViewRow agvrow = ProductList.Rows[ProductList.SelectedIndex];
             msg = "ID is:" + (agvrow.FindControl("ProductID") as Label).Text;
             msg += "Name is:" + (agvrow.FindControl("ProductName") as Label).Text;
@@ -41,5 +41,14 @@ namespace WebApp.SamplePages
             msg += "Disc is:" + (agvrow.FindControl("Discontinued") as CheckBox).Checked.ToString();
             Message.Text = msg;
         }
+
+        protected void FetchCategoryProducts_Click(object sender, EventArgs e)
+        {
+            if (CategoryList.SelectedIndex == 0)
+            {
+                Message.Text = "Select a category to view its products.";
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,23 +19,22 @@ namespace WebApp.SamplePages
         {
             MessageLabel.Text = "";
 
-            //on the first presentation of this page, load the dropdownlist with Region data
-            if (!Page.IsPostBack)  // has to be there 
+            //on the first presentation of this page, load the 
+            //   dropdownlist with Region data
+            if (!Page.IsPostBack)
             {
-                BindProductList(); //is there to load the dropdown list (the actual code for the dropdown list ist to be found in the BindProductList method right underneath)
+                BindProductList();
             }
         }
 
-        protected void BindProductList() //if info (the name of our list) is null we do not display it on the dropdown list
+        protected void BindProductList()
         {
             //any time you leave the web page to access another project, place your code within a try catch
             try
             {
                 //create an instance of the interface class that exists in your BLL
                 //you will need to have declared the namespace of the class at the top of this file
-                //(Connect to the Controller Class)
                 ProductController sysmger = new ProductController();
-
                 //call the method in the controller that will return the data that you wish
                 //you will need to have declared the namespace of the entity class at the top of this file
                 List<Product> info = sysmger.Products_List();
@@ -43,7 +43,7 @@ namespace WebApp.SamplePages
                 info.Sort((x, y) => x.ProductName.CompareTo(y.ProductName));
 
                 //load the dropdownlist
-                ProductList.DataSource = info; //info is the name of the list ProductList is the name of the Dropdown
+                ProductList.DataSource = info;
                 ProductList.DataTextField = nameof(Product.ProductName);
                 ProductList.DataValueField = nameof(Product.ProductID);
                 ProductList.DataBind();
@@ -59,10 +59,6 @@ namespace WebApp.SamplePages
                 MessageLabel.Text = GetInnerException(ex).Message;
             }
         }
-
-
-
-
         //use this method to discover the inner most error message.
         protected Exception GetInnerException(Exception ex)
         {
@@ -74,61 +70,70 @@ namespace WebApp.SamplePages
             return ex;
         }
 
-
-
-
-
         protected void Fetch_Click(object sender, EventArgs e)
         {
             //test for data presents is against the dropdownlist
             //test for the .SelectedIndex
             //if the index value is 0, then I am on the prompt line
-            if (ProductList.SelectedIndex == 0) //To find the physical position (for the prompt line)
+            if (ProductList.SelectedIndex == 0)
             {
                 MessageLabel.Text = "Select a product to view.";
             }
-            else  
+            else
             {
                 try
                 {
-                    //connect to our controller (in this case the ProductController)
-                    ProductController sysmgr = new ProductController(); //create a new instance of that class calles sysmgr
-
-
-                    Product info = sysmgr.Products_FindByID(int.Parse(ProductList.SelectedValue)); //Take the value because we sorted the name!!! --> value and index might do not match up
-                                                                                                   //Product is the class in the ProductController class
-
+                    ProductController sysmgr = new ProductController();
+                    Product info = sysmgr.Products_FindByID(int.Parse(ProductList.SelectedValue));
                     if (info == null)
                     {
                         MessageLabel.Text = "Selected product does not exists on the file";
-                        BindProductList(); //will refresh the dropdown list
+                        BindProductList();
                     }
                     else
                     {
                         //move your data from info to the cooresponding controls on the web page.
                         ProductID.Text = info.ProductID.ToString();
                         ProductName.Text = info.ProductName;
-                        SupplierID.Text = info.SupplierID.ToString();
-                        CategoryID.Text = info.CategoryID.ToString();
-                        QuantityPerUnit.Text = info.QuantityPerUnit;
-                        UnitPrice.Text = info.UnitPrice.ToString(); ;
-                        UnitsInStock.Text = info.UnitsInStock.ToString();
-                        UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
-                        ReorderLevel.Text = info.ReorderLevel.ToString();
-
-                        //Checkbox
-                        if(info.Discontinued == false)
+                        //SupplierID.Text = info.SupplierID.ToString();
+                        //CategoryID.Text = info.CategoryID.ToString();
+                        if (info.SupplierID == null)
                         {
-                            Discontinued.Checked = false;
+                            SupplierList.SelectedIndex = 0;
                         }
                         else
                         {
-                            Discontinued.Checked = true;
-
+                            SupplierList.SelectedValue = info.SupplierID.ToString();
                         }
+                        if (info.CategoryID == null)
+                        {
+                            CategoryList.SelectedIndex = 0;
+                        }
+                        else
+                        {
+                            CategoryList.SelectedValue = info.CategoryID.ToString();
+                        }
+
+                        QuantityPerUnit.Text = info.QuantityPerUnit == null ? "" : info.QuantityPerUnit;
+                        UnitPrice.Text = info.UnitPrice == null ? "" : string.Format("{0:0.00}", info.UnitPrice);
+                        UnitsInStock.Text = info.UnitsInStock == null ? "" : info.UnitsInStock.ToString();
+                        UnitsOnOrder.Text = info.UnitsOnOrder == null ? "" : info.UnitsOnOrder.ToString();
+                        ReorderLevel.Text = info.ReorderLevel == null ? "" : info.ReorderLevel.ToString();
+                        
+                        //Checkbox
+                            //if(info.Discontinued == false)
+                           //{
+                               //Discontinued.Checked = false;
+                          //}
+                          //else
+                          //{
+                              //Discontinued.Checked = true;
+                          //}
+
+                        Discontinued.Checked = info.Discontinued;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageLabel.Text = GetInnerException(ex).Message;
                 }
