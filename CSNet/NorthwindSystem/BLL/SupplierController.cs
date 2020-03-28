@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 #region Additional Namespaces
 using NorthwindSystem.DAL;
 using NorthwindSystem.Entities;
-using System.ComponentModel;
+using System.ComponentModel;  //ODS
 #endregion
 
 namespace NorthwindSystem.BLL
 {
-    [DataObject]
+    [DataObject] //Exposure of the Class
     public class SupplierController
     {
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        [DataObjectMethod(DataObjectMethodType.Select, false)] //Exposure of the Method
         public List<Supplier> Suppliers_List()
         {
             using (var context = new NorthwindSystemContext())
