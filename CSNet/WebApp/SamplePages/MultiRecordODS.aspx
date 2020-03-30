@@ -32,10 +32,10 @@
     </div>
   
      <div class="row">
-        <asp:GridView ID="ProductList" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="Horizontal" BorderStyle="None" OnSelectedIndexChanged="ProductList_SelectedIndexChanged" DataSourceID="ProductListODS" AllowPaging="True" PageSize="3">
+        <asp:GridView ID="ProductList" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="Horizontal" BorderStyle="None" OnSelectedIndexChanged="ProductList_SelectedIndexChanged"  DataSourceID="ProductListODS" AllowPaging="True" PageSize="3">
               <Columns>
                 <asp:CommandField SelectText="View" ShowSelectButton="True"></asp:CommandField>
-               <%-- <asp:TemplateField HeaderText="ID">
+               <%-- <asp:TemplateField HeaderText="ID">                             
                     <ItemTemplate>
                         <asp:Label ID="ProductID" runat="server" 
                             Text='<%# Eval("ProductID") %>'></asp:Label>
