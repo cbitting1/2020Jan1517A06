@@ -101,6 +101,13 @@
                                         href="~/SamplePages/MultiRecordODS.aspx"
                                         style="color:black" runat="server">
                                    ODS Query : Non-Pkey List</a>
+                                  <a class="dropdown-item"
+                                        href="~/SamplePages/GridViewCodeBehind.aspx"
+                                        style="color:black" runat="server">
+                                  GridView Paging Code Behind</a>  <a class="dropdown-item"
+                                        href="~/SamplePages/Product CRUD.aspx"
+                                        style="color:black" runat="server">
+                                  Productd CRUD</a>
                             </div>
                          </li>
                          <li class="nav-item">
@@ -110,7 +117,7 @@
                           <li class="nav-item">
                              <a class="nav-link" href="~/About.aspx" runat="server"
                                     style="color:black">About</a>
-                           </li>
+                           </li>                         
                         </ul>
                     </div>
                 </nav> 
