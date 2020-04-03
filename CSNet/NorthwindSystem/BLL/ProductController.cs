@@ -10,8 +10,9 @@ using NorthwindSystem.DAL;
 using NorthwindSystem.Entities;
 using System.ComponentModel;  //ODS
 using System.Data.SqlClient;    //SqlParameter()
-
 #endregion
+
+
 namespace NorthwindSystem.BLL
 {
     [DataObject]
@@ -19,8 +20,7 @@ namespace NorthwindSystem.BLL
     {
         public List<Product> Products_List()
         {
-            //ensure the sql connection is closed at the end
-            //   of the query process
+            //ensure the sql connection is closed at the end of the query process
             using (var context = new NorthwindSystemContext())
             {
                 //Use an extension method of EntityFrame to get
@@ -63,6 +63,20 @@ namespace NorthwindSystem.BLL
                 return results.ToList();
 
                 //This way we look up anything on a table that is not a primary key
+          
+            }
+        }
+
+
+
+
+        public List<Product> Products_GetByPartialProductName(string productname)
+        {
+            using (var context = new NorthwindSystemContext())
+            {
+                IEnumerable<Product> results = context.Database.SqlQuery<Product>("Products_GetByPartialProductName @PartialName",
+                    new SqlParameter("PartialName", productname));
+                return results.ToList();
             }
         }
     }

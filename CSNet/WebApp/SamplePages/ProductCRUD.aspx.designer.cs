@@ -7,11 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp.NorthwindPages {
-    
-    
-    public partial class ProductCRUD {
-        
+namespace WebApp.NorthwindPages
+{
+
+
+    public partial class ProductCRUD
+    {
+
+        /// <summary>
+        /// RequiredProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredProductName;
+
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
         /// <summary>
         /// Label5 control.
         /// </summary>
@@ -20,7 +40,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-        
+
         /// <summary>
         /// ProductList control.
         /// </summary>
@@ -29,7 +49,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ProductList;
-        
+
         /// <summary>
         /// Search control.
         /// </summary>
@@ -38,7 +58,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton Search;
-        
+
         /// <summary>
         /// Clear control.
         /// </summary>
@@ -47,7 +67,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton Clear;
-        
+
         /// <summary>
         /// AddProduct control.
         /// </summary>
@@ -56,7 +76,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton AddProduct;
-        
+
         /// <summary>
         /// UpdateProduct control.
         /// </summary>
@@ -65,7 +85,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton UpdateProduct;
-        
+
         /// <summary>
         /// RemoveProduct control.
         /// </summary>
@@ -74,7 +94,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton RemoveProduct;
-        
+
         /// <summary>
         /// Message control.
         /// </summary>
@@ -83,7 +103,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList Message;
-        
+
         /// <summary>
         /// Label12 control.
         /// </summary>
@@ -92,7 +112,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label12;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -101,7 +121,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -110,7 +130,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// Label6 control.
         /// </summary>
@@ -119,7 +139,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
+
         /// <summary>
         /// Label7 control.
         /// </summary>
@@ -128,7 +148,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-        
+
         /// <summary>
         /// Label8 control.
         /// </summary>
@@ -137,7 +157,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-        
+
         /// <summary>
         /// Label9 control.
         /// </summary>
@@ -146,7 +166,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
-        
+
         /// <summary>
         /// Label10 control.
         /// </summary>
@@ -155,7 +175,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label10;
-        
+
         /// <summary>
         /// Label11 control.
         /// </summary>
@@ -164,7 +184,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label11;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -173,7 +193,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// ProductID control.
         /// </summary>
@@ -182,7 +202,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ProductID;
-        
+
         /// <summary>
         /// ProductName control.
         /// </summary>
@@ -191,7 +211,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProductName;
-        
+
         /// <summary>
         /// SupplierList control.
         /// </summary>
@@ -200,7 +220,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList SupplierList;
-        
+
         /// <summary>
         /// CategoryList control.
         /// </summary>
@@ -209,7 +229,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CategoryList;
-        
+
         /// <summary>
         /// QuantityPerUnit control.
         /// </summary>
@@ -218,7 +238,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox QuantityPerUnit;
-        
+
         /// <summary>
         /// UnitPrice control.
         /// </summary>
@@ -227,7 +247,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UnitPrice;
-        
+
         /// <summary>
         /// UnitsInStock control.
         /// </summary>
@@ -236,7 +256,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UnitsInStock;
-        
+
         /// <summary>
         /// UnitsOnOrder control.
         /// </summary>
@@ -245,7 +265,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UnitsOnOrder;
-        
+
         /// <summary>
         /// ReorderLevel control.
         /// </summary>
@@ -254,7 +274,7 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ReorderLevel;
-        
+
         /// <summary>
         /// Discontinued control.
         /// </summary>
@@ -263,5 +283,23 @@ namespace WebApp.NorthwindPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox Discontinued;
+
+        /// <summary>
+        /// SupplerListODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource SupplerListODS;
+
+        /// <summary>
+        /// CategoryListODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource CategoryListODS;
     }
 }
