@@ -218,13 +218,13 @@ namespace WebApp.NorthwindPages
                         //Product ID is an identity key
                         theItem.ProductName = ProductName.Text;
                         theItem.QuantityPerUnit = QuantityPerUnit.Text;
-                        //theItem.UnitPrice = decimal.Parse(UnitPrice.Text); *//not nullable
+                        //theItem.UnitPrice = decimal.Parse(UnitPrice.Text); //not nullable
                         theItem.UnitPrice = string.IsNullOrEmpty(UnitPrice.Text) ? (decimal?)null : decimal.Parse(UnitPrice.Text); //If it can be nullable when user enters it
                         theItem.UnitsInStock = string.IsNullOrEmpty(UnitsInStock.Text) ? (Int16?)null : Int16.Parse(UnitsInStock.Text); //If it can be nullable when user enters it
                         theItem.UnitsOnOrder = string.IsNullOrEmpty(UnitsOnOrder.Text) ? (Int16?)null : Int16.Parse(UnitsOnOrder.Text); //If it can be nullable when user enters it
                         theItem.ReorderLevel = string.IsNullOrEmpty(ReorderLevel.Text) ? (Int16?)null : Int16.Parse(ReorderLevel.Text); //If it can be nullable when user enters it
 
-                        //For the DropDown for Supplier
+                        //For the DropDown for Supplier if they can be null
                         if(SupplierList.SelectedIndex == 0)
                         {
                             theItem.SupplierID = null;
@@ -235,7 +235,7 @@ namespace WebApp.NorthwindPages
                         }
 
 
-                        //For the Category DropDown
+                        //For the Category DropDown if they can be null
                         if (CategoryList.SelectedIndex == 0)
                         {
                             theItem.CategoryID = null;
