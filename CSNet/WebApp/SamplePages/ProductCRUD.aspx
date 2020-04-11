@@ -26,8 +26,8 @@
              <asp:LinkButton ID="Search" runat="server" Font-Size="X-Large" OnClick="Search_Click" CausesValidation="false">Search</asp:LinkButton>&nbsp;&nbsp;
              <asp:LinkButton ID="Clear" runat="server" Font-Size="X-Large" OnClick="Clear_Click" CausesValidation="false">Clear</asp:LinkButton>&nbsp;&nbsp;
              <asp:LinkButton ID="AddProduct" runat="server" Font-Size="X-Large" OnClick="AddProduct_Click" >Add</asp:LinkButton>&nbsp;&nbsp;
-             <asp:LinkButton ID="UpdateProduct" runat="server" Font-Size="X-Large" >Update</asp:LinkButton>&nbsp;&nbsp;
-             <asp:LinkButton ID="RemoveProduct" runat="server" Font-Size="X-Large" CausesValidation="false">Remove</asp:LinkButton>&nbsp;&nbsp;
+             <asp:LinkButton ID="UpdateProduct" runat="server" Font-Size="X-Large" OnClick="UpdateProduct_Click" >Update</asp:LinkButton>&nbsp;&nbsp;
+             <asp:LinkButton ID="RemoveProduct" runat="server" Font-Size="X-Large" CausesValidation="false" OnClick="RemoveProduct_Click" OnClientClick="return confirm('Are you sure you wish to discontinue this product?')">Remove</asp:LinkButton>&nbsp;&nbsp;
          
              <br /><br />
              <asp:DataList ID="Message" runat="server">

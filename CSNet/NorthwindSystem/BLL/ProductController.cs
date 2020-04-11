@@ -113,10 +113,63 @@ namespace NorthwindSystem.BLL
                 return item.ProductID;
 
 
-                //NOTE: public int indicates the returnype.... If it would say public void that means NO return type
+                //NOTE: public int indicates the returntype.... If it would say public void that means NO return type
+            }
+        } 
+                             
+        
+          
+        public int Products_Update(Product item)
+            {
+                using (var context = new NorthwindSystemContext())
+                {
+                    //Stage 
+                    context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+
+                    //Commit and return of the number rows affected
+                    return context.SaveChanges();
+                }
             }
 
 
+
+        public int Products_Delete(int productid)
+        {
+            using (var context = new NorthwindSystemContext())
+            {
+
+                //Two types of deletes
+
+                //1) Physical: physically removal of the record from the database
+                //Get the record from the database by the PK
+                //var exists = context.Products.Find(productid);
+
+                //    //Stage the removal 
+                //context.Products.Remove(exists);
+
+                //    //Commit
+                //return context.SaveChanges();
+
+
+
+
+                //Logical Delete: One sets a property of the class to a specified value to indicate tbe record "logically" does not 
+                    //"exist" on the database anymore.            
+                var exists = context.Products.Find(productid);
+
+
+                //The setting of the propery should be done within this method and NOT dependent on the user 
+                    //remembering to do the action
+                exists.Discontinued = true;
+                
+                
+                //Stage  
+                context.Entry(exists).State = System.Data.Entity.EntityState.Modified;
+
+                //Commit and return of the number rows affected
+                return context.SaveChanges();
+
+            }
         }
     }
 }
