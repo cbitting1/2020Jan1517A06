@@ -271,14 +271,14 @@ namespace WebApp.NorthwindPages
 
                         //refresh the dropdownlist for products
                         BindProductList();
-                        //Position in the lsit
+                        //Position in the list
                         ProductList.SelectedValue = newProductID.ToString(); //So the Products DropDownList is gonna repositioned 
 
 
                         OutputMessage.Text = "Add was successfull";
 
                     }
-                    catch (DbUpdateException ex) //Error when trying to chagne the database (fields)
+                    catch (DbUpdateException ex) //Error when trying to change the database (fields)
                     {
                         UpdateException updateException = (UpdateException)ex.InnerException;
                         if (updateException.InnerException != null)
