@@ -144,10 +144,10 @@ namespace NorthwindSystem.BLL
                 //Get the record from the database by the PK
                 //var exists = context.Products.Find(productid);
 
-                //    //Stage the removal 
+                //    Stage the removal 
                 //context.Products.Remove(exists);
 
-                //    //Commit
+                //    Commit
                 //return context.SaveChanges();
 
 
